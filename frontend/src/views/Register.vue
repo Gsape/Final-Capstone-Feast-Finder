@@ -1,7 +1,10 @@
 <template>
   <div id="register" class="text-center">
+    <section>
+      <img id="logo" src="GitForkedLogo.png"/>
+    </section>
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+      <h1 class="h3 mb-3 font-weight-normal">Git Ready to Eat!</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -37,6 +40,12 @@
         Create Account
       </button>
     </form>
+    <!-- <section>
+      <img id="backgroundimg" src='https://images.unsplash.com/photo-1597652096872-658bf24731ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjU5fHxwaXR0c2J1cmdofGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60'/>
+    </section> -->
+     <section>
+      <img id="backgroundimg2" src="https://images.unsplash.com/photo-1555243896-771a81243361?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1123&q=80"/>
+    </section>
   </div>
 </template>
 
@@ -90,4 +99,62 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Genos:ital,wght@1,100&display=swap');
+
+#register {
+  font-family: 'Genos', sans-serif;
+  display: flex;
+  justify-content: center;
+  /* background-image: linear-gradient(to left, rgba(226, 240, 101, 0.479), rgba(113, 122, 124, 0.705)); */
+  padding: 3rem;
+  border-radius: 15px 50px 30px 5px;
+  margin-right: 60px;
+  margin-left: 60px;
+}
+
+label {
+  display: flex;
+  font-size: 20px;
+  font-weight: bold;
+
+}
+
+a {
+  display: flex;
+  justify-content: left;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input {
+  display: flex;
+  justify-content: center;
+  padding: 2px;
+}
+
+#backgroundimg {
+  display: flex;
+  justify-content: center;
+  padding: 5rem;
+  border-radius: 15px 50px 30px 5px;
+}
+
+#backgroundimg2 {
+  position: relative;
+  
+}
+#backgroundimg2 {
+  position: absolute;
+  width:125rem;
+  padding: 200px;
+  margin: -200px;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+}
+
+#logo {
+  width: 150px;
+  height: auto;
+ }
+</style>
