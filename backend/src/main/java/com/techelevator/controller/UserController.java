@@ -36,8 +36,13 @@ public class UserController {
 
     // getHome() - client retrieves the zipcode and radius of their default/home location
         // will need a HomeDTO and Home model
-    @RequestMapping (path = "/profile", method = RequestMethod.GET)
-
+//    @RequestMApping(path = "/profile", method = RequestMethod.GET)
+//    public Profile getHome(Principal username){
+//        String username = username.getUsername();
+//        int userId = userDAO.findIdByUsername(username);
+//
+//        return profileDao.getLocation(userId); //this
+//    }
 
     // setInitialPreferences() - client sets the zip code, radius, and cuisine preferences that are their initial default
         // may not need a DTO or model
