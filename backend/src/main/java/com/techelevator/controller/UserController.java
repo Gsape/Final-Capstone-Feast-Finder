@@ -31,15 +31,11 @@ public class UserController {
 
     public UserController(){};
 
-    // setHome() - client gives the zipcode and radius of their default/home location
-        // will need a HomeDTO and Home model
-
-
     // getHome() - client retrieves the zipcode and radius of their default/home location
         // will need a HomeDTO and Home model
 
 
-    // setInitialPreferences() - client sets the cuisine preferences that are their initial default
+    // setInitialPreferences() - client sets the zip code, radius, and cuisine preferences that are their initial default
         // may not need a DTO or model
 
 
