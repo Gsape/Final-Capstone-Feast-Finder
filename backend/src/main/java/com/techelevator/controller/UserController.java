@@ -1,10 +1,12 @@
 package com.techelevator.controller;
 
+import javax.security.auth.login.AccountNotFoundException;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
@@ -22,26 +24,58 @@ import com.techelevator.security.jwt.JWTFilter;
 import com.techelevator.security.jwt.TokenProvider;
 
 import java.security.Principal;
-//
-//@RestController
-//@CrossOrigin
 
-//public class UserController {
+@RestController
+@CrossOrigin
+
+public class UserController {
+
+    private UserDao userDao;
+
+    public UserController(){};
+
+    // getHome() - client retrieves the zipcode and radius of their default/home location
+        // will need a HomeDTO and Home model
+//    @RequestMApping(path = "/profile", method = RequestMethod.GET)
+//    public Profile getHome(Principal username){
+//        String username = username.getUsername();
+//        int userId = userDAO.findIdByUsername(username);
+//
+//        return profileDao.getLocation(userId); //this
+//    }
+
+    // setInitialPreferences() - client sets the zip code, radius, and cuisine preferences that are their initial default
+        // may not need a DTO or model
+    @RequestMapping (path = "/profile", method = RequestMethod.POST)
 
 
-    // Set home it will set zip code and radius
+    // updatePreferences() - client updates their cuisine preferences
+        // may not need a DTO or model
+    @RequestMapping (path = "/profile", method = RequestMethod.PUT)
 
-//        @RequestMapping(path = "/", method = RequestMethod.GET)
-//        public String setHome(int zip, int radius, Principal username){
-//
-//        }
-//
-//    // Get home
-//
-//        public void getHome(){
-//
-//        }
-//
-//
-//
-//}
+
+    // getPreferences() - client retrieves their cuisine preferences
+        // may not need a DTO or model
+    @RequestMapping (path = "/profile", method = RequestMethod.GET)
+
+
+    // setUserFave() - client adds a new FAVE restaurant to the restaurant table
+        // will need a RestaurantDTO and model
+    @RequestMapping (path = "/restaurants", method = RequestMethod.POST)
+    public
+
+    // getUserFaves() - client retrieves ALL of their FAVE restaurants
+        // will need a RestaurantDTO and model
+    @RequestMapping (path = "/restaurants", method = RequestMethod.GET)
+
+
+    // setUserHate() - client adds a new HATED restaurant to the restaurant table
+        // will need a RestaurantDTO and model
+    @RequestMapping (path = "/restaurants", method = RequestMethod.POST)
+
+
+    // getUserHates() - client retrieves ALL of their HATED restaurants
+        // will need a RestaurantDTO and model
+    @RequestMapping (path = "/restaurants", method = RequestMethod.GET)
+
+}
