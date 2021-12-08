@@ -33,34 +33,41 @@ public class UserController {
 
     // getHome() - client retrieves the zipcode and radius of their default/home location
         // will need a HomeDTO and Home model
+    @RequestMapping (path = "/profile", method = RequestMethod.GET)
 
 
     // setInitialPreferences() - client sets the zip code, radius, and cuisine preferences that are their initial default
         // may not need a DTO or model
+    @RequestMapping (path = "/profile", method = RequestMethod.POST)
 
 
     // updatePreferences() - client updates their cuisine preferences
         // may not need a DTO or model
+    @RequestMapping (path = "/profile", method = RequestMethod.PUT)
 
 
     // getPreferences() - client retrieves their cuisine preferences
         // may not need a DTO or model
+    @RequestMapping (path = "/profile", method = RequestMethod.GET)
 
 
     // setUserFave() - client adds a new FAVE restaurant to the restaurant table
         // will need a RestaurantDTO and model
+    @RequestMapping (path = "/restaurants", method = RequestMethod.POST)
 
 
     // getUserFaves() - client retrieves ALL of their FAVE restaurants
         // will need a RestaurantDTO and model
+    @RequestMapping (path = "/restaurants", method = RequestMethod.GET)
 
 
     // setUserHate() - client adds a new HATED restaurant to the restaurant table
         // will need a RestaurantDTO and model
+    @RequestMapping (path = "/restaurants", method = RequestMethod.POST)
 
 
     // getUserHates() - client retrieves ALL of their HATED restaurants
         // will need a RestaurantDTO and model
-
+    @RequestMapping (path = "/restaurants", method = RequestMethod.GET)
 
 }

@@ -46,9 +46,9 @@ CREATE TABLE users (
 
 CREATE TABLE restaurants (
         restaurant_id SERIAL,
-        yelp_id SERIAL,
+        yelp_id VARCHAR (255),
         restaurant_name VARCHAR (255),
-        is_showed BOOLEAN,
+        is_shown BOOLEAN,
 
         PRIMARY KEY (restaurant_id)
 );
