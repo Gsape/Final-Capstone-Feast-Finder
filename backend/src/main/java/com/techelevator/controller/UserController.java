@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
@@ -21,6 +22,8 @@ import com.techelevator.model.User;
 import com.techelevator.model.UserAlreadyExistsException;
 import com.techelevator.security.jwt.JWTFilter;
 import com.techelevator.security.jwt.TokenProvider;
+
+import java.security.Principal;
 
 @RestController
 @CrossOrigin
@@ -43,30 +46,36 @@ public class UserController {
 
     // setInitialPreferences() - client sets the zip code, radius, and cuisine preferences that are their initial default
         // may not need a DTO or model
+    @RequestMapping (path = "/profile", method = RequestMethod.POST)
 
 
     // updatePreferences() - client updates their cuisine preferences
         // may not need a DTO or model
+    @RequestMapping (path = "/profile", method = RequestMethod.PUT)
 
 
     // getPreferences() - client retrieves their cuisine preferences
         // may not need a DTO or model
+    @RequestMapping (path = "/profile", method = RequestMethod.GET)
 
 
     // setUserFave() - client adds a new FAVE restaurant to the restaurant table
         // will need a RestaurantDTO and model
-
+    @RequestMapping (path = "/restaurants", method = RequestMethod.POST)
+    public
 
     // getUserFaves() - client retrieves ALL of their FAVE restaurants
         // will need a RestaurantDTO and model
+    @RequestMapping (path = "/restaurants", method = RequestMethod.GET)
 
 
     // setUserHate() - client adds a new HATED restaurant to the restaurant table
         // will need a RestaurantDTO and model
+    @RequestMapping (path = "/restaurants", method = RequestMethod.POST)
 
 
     // getUserHates() - client retrieves ALL of their HATED restaurants
         // will need a RestaurantDTO and model
-
+    @RequestMapping (path = "/restaurants", method = RequestMethod.GET)
 
 }
