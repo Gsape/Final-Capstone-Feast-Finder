@@ -48,7 +48,7 @@ CREATE TABLE restaurants (
         restaurant_id SERIAL,
         yelp_id SERIAL,
         restaurant_name VARCHAR (255),
-        is_showed VARCHAR (50),
+        is_showed BOOLEAN,
 
         PRIMARY KEY (restaurant_id)
 );
