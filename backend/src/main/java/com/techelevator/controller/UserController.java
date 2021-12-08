@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
@@ -21,6 +22,8 @@ import com.techelevator.model.User;
 import com.techelevator.model.UserAlreadyExistsException;
 import com.techelevator.security.jwt.JWTFilter;
 import com.techelevator.security.jwt.TokenProvider;
+
+import java.security.Principal;
 
 @RestController
 @CrossOrigin
@@ -54,7 +57,7 @@ public class UserController {
     // setUserFave() - client adds a new FAVE restaurant to the restaurant table
         // will need a RestaurantDTO and model
     @RequestMapping (path = "/restaurants", method = RequestMethod.POST)
-
+    public
 
     // getUserFaves() - client retrieves ALL of their FAVE restaurants
         // will need a RestaurantDTO and model
