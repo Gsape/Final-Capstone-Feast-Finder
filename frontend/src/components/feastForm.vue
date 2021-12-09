@@ -2,8 +2,8 @@
   <div class="form">
     <form v-on:submit.prevent="submitForm" class="q-form">
         <label>
-            <h2>Location</h2>
-            <label for="zipcode" class="sr-only">Zipcode</label>
+            <h2>Feast Finder Form</h2>
+            <label for="zipcode" class="zipcode">Zipcode</label>
                 <input
                     type="text"
                     id="zipcode"
@@ -18,7 +18,7 @@
                 />   
         </label>    
 
-        <label for="radius" class="sr-only">Radius</label>
+        <label for="radius" class="radius">Radius</label>
                 <select name = "radius" id="radius" v-model="form.radius">
                     <option value="5">5</option>
                     <option value="10">10</option>
@@ -29,12 +29,12 @@
 
         <h2>Feasting Zone</h2>
 
-        <label class="checkbox-form">
+        <label class="checkbox-form" for="options.type">
         <div class="options" v-for="options in options" v-bind:key="options.id">
             <label class="form-check-label">
                 {{ options.type }}
             </label>
-            <input
+            <input 
                 :id="options.type"
                 v-model="form.preferences"
                 type="checkbox"
@@ -209,5 +209,49 @@ export default {
     width: 50%;
     /* border: 2px solid black;
     border-radius: 5px; */
+    }
+
+    button{
+     border: 1;
+     border-radius: 20px;
+     background: green;
+     font-family: serif;
+     font-size: 100%;
+     line-height: 1.2;
+     white-space: nowrap;
+     text-decoration: none;
+     padding: 1rem 2rem;
+     margin: 0.25rem;
+     cursor: pointer;       
+    
+    }
+    .form-check-label{
+        display: flex;
+        margin-left: 400px ;
+        font-family: serif;
+        font-size: 100%;
+                       
+    }
+
+    .zipcode{
+        border-radius: 20px;
+        display: block;
+        padding: 10px;
+    }
+    #zipcode{
+        border-radius: 10px;
+        width: 200px;
+        height: 30px;
+    }
+
+    .radius{       
+        display: block;
+        padding: 10px;
+        size: 100%;
+    }
+    #radius{
+        border-radius: 10px;
+        width: 200px;
+        height: 30px;
     }
 </style>
