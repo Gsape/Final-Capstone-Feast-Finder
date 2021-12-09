@@ -11,10 +11,10 @@
                     placeholder="zipcode"
                     required
                     autofocus
-                    v:model="form.zip"
+                    v:model="form.zipCode"
                     maxlength="5"
                     minlength="5"
-                    v-model="form.zip"
+                    v-model="form.zipCode"
                 />   
         </label>    
 
@@ -36,7 +36,7 @@
             </label>
             <input 
                 :id="options.type"
-                v-model="form.preferences"
+                v-model="form.cuisineType"
                 type="checkbox"
                 :value="options.type"
                 @change="onChange"
@@ -46,7 +46,7 @@
     </form>
         {{ options.type }}
 
-    <button type="submit" id="submit">Submit</button>
+    <button type="submit" id="submit" v-on:click="submitForm()">Submit</button>
   </div>
 
 </template>
@@ -102,25 +102,45 @@ export default {
                 ],
 
                 form: {
-                    zip: '',
+                    zipCode: '',
                     radius: '',
-                    preferences: []
+                    cuisineType: []
                 },
 
-                methods: {
-                    submitForm() {
-                        const newForm = {
-                            zip: this.form.zip,
-                            radius: this.form.radius,
-                            preferences: this.form.preferences
-                        };
+                // methods: {
+                //     submitForm() {
+                //         const newForm = {
+                //             zipCode: this.form.zipCode,
+                //             radius: this.form.radius,
+                //             cuisineType: this.form.cuisineType
+                //         };
 
-                        Authservice.addForm(newForm)
-                        console.log
-                    }
-                }
+                //         Authservice.addForm(newForm)
+                //         console.log
+                //     }
+                // }
         }
-    }
+    },
+
+     methods: {
+                submitForm() {
+                    const newForm = {
+                        zipCode: this.form.zipCode,
+                        radius: this.form.radius,
+                        cuisineType: this.form.cuisineType
+                    };
+
+                    Authservice
+                    .addForm(newForm)
+                    .then(response => {
+                        if (response.status === 201) {
+                            this.$state.response.data.token
+                            this.$router.push('/')
+                        }
+                    })
+                    // console.log
+                    }
+        }
 
 
 //     <template>
