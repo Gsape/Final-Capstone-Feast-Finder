@@ -25,7 +25,7 @@ public class JdbcRestaurantDao implements RestaurantDao{
 
     @Override
     public String addUserRestaurant(int userId, RestaurantDTO restaurant){
-        String sql = "INSERT INTO user_restaurants (userId, yelp_id, is_shown) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO user_restaurants (user_id, yelp_id, is_shown) VALUES (?, ?, ?)";
         String result = jdbcTemplate.queryForObject(sql, String.class, userId, restaurant.getYelpId(), restaurant.getIsShown());
         return result;
     }
