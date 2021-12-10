@@ -25,7 +25,7 @@ public class JdbcRestaurantDao implements RestaurantDao{
 
     @Override
     public String addUserRestaurant(int userId, RestaurantDTO restaurant){
-        String sql = "INSERT INTO user_restaurants (user_id, yelp_id, is_shown) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO user_restaurants (user_id, yelp_id, is_shown) VALUES (?, ?, ?) RETURNING yelp_id";
         String result = jdbcTemplate.queryForObject(sql, String.class, userId, restaurant.getYelpId(), restaurant.getIsShown());
         return result;
     }
@@ -43,7 +43,7 @@ public class JdbcRestaurantDao implements RestaurantDao{
     @Override
     public List<String> getPreferences(int userId, boolean isShown){
         List<String> preferences = new ArrayList<>();
-        String sql = "SELECT yelp_id FROM user_restaurants WHERE user_id = ? AND is_shown is ?";
+        String sql = "SELECT yelp_id FROM user_restaurants WHERE user_id = ? AND is_shown = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId, isShown);
         while (results.next()){
             String eachOne = results.getString("yelp_id");

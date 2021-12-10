@@ -11,7 +11,9 @@ public interface ProfileDao {
 
     String addCuisines(int userId, List<Long> idList);
 
-//    Profile getLocation(int userId);
+    Profile getLocation(int userId);
 
     Profile setProfile(Profile profile, int userId);
+
+    List<String> getCuisines(int userId);
 }
