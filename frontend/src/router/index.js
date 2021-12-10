@@ -56,7 +56,7 @@ const router = new Router({
     },
     {
       path: "/feastForm",
-      // name: "feastForm",
+      name: "feastForm",
       component: feastForm, //what is this and why?
       meta: {
         requiresAuth: true
