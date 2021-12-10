@@ -39,9 +39,20 @@ public class JdbcProfileDao implements ProfileDao {
         return idList;
     }
 
-//    public int addCuisines(Long userId, List<Long> idList){
-//
-//    }
+    @Override
+    public String addCuisines(int userId, List<Long> idList){
+        int successGoal = idList.size();
+        String sql = "INSERT INTO user_cuisine (user_id, cuisine_id) VALUES (?, ?)";
+        int results = 0;
+        for (Long element : idList){
+            results += jdbcTemplate.queryForObject(sql, int.class, userId, element);
+        }
+        if (successGoal == results){
+            return "Success!";
+        } else {
+            return "Operation failed.";
+        }
+    }
 
 //    public Profile getLocation(Long userId){
 //

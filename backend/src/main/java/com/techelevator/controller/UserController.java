@@ -74,7 +74,7 @@ public class UserController {
     // updatePreferences() - client updates their cuisine preferences
         // may not need a DTO or model
     @RequestMapping (path = "/profile", method = RequestMethod.PUT)
-    public int updatePreferences(Principal username, @RequestBody String[] cuisines){
+    public String updatePreferences(Principal username, @RequestBody String[] cuisines){
         if (username == null){
             System.out.println("username is null"); // needs to throw an exception instead
         }
