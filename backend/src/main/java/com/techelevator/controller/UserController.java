@@ -42,10 +42,10 @@ public class UserController {
         this.profileDao = profileDao;
     };
 
-    // getHome() - client retrieves the zipcode and radius of their default/home location
+    // getProfile() - client retrieves the zipcode and radius of their default/home location
         // will need a HomeDTO and Home model
     @RequestMapping(path = "/profile", method = RequestMethod.GET)
-    public Profile getHome(Principal username){
+    public Profile getProfile(Principal username){
         if (username == null){
             System.out.println("username is null"); // needs to throw an exception instead
         }
@@ -54,7 +54,6 @@ public class UserController {
         Profile profile = profileDao.getLocation(userId); //this
         profile.setCuisineType(profileDao.getCuisines(userId));
         return profile;
-
     }
 
     // setInitialPreferences() - client sets the zip code, radius, and cuisine preferences that are their initial default
@@ -82,15 +81,6 @@ public class UserController {
         List<Long> idList = profileDao.getCuisineIds(cuisines);
         return profileDao.addCuisines(userId, idList);
     }
-
-    // getPreferences() - client retrieves their cuisine preferences
-        // may not need a DTO or model
-//    @RequestMapping (path = "/profile", method = RequestMethod.GET)
-//    public List<String> getPreferences(){
-//        List<String> listy = new ArrayList<>();
-//        return listy;
-//    }
-
 
     // setUserFave() - client adds a new FAVE restaurant to the restaurant table
         // will need a RestaurantDTO and model
