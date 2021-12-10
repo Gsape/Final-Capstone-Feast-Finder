@@ -77,11 +77,11 @@ CREATE SEQUENCE seq_user_id
 
 
 CREATE TABLE users (
-   user_id int DEFAULT nextval('seq_user_id'::regclass) NOT NULL,
-   username varchar(50) NOT NULL,
-   password_hash varchar(200) NOT NULL,
-   role varchar(50) NOT NULL,
-   CONSTRAINT PK_user PRIMARY KEY (user_id)
+	user_id int DEFAULT nextval('seq_user_id'::regclass) NOT NULL,
+	username varchar(50) NOT NULL,
+	password_hash varchar(200) NOT NULL,
+	role varchar(50) NOT NULL,
+	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
 CREATE TABLE cuisine (
@@ -97,7 +97,7 @@ CREATE TABLE user_restaurants (
         is_shown BOOLEAN,
 
         PRIMARY KEY (user_id),
-        FOREIGN KEY (user_id) REFERENCES users (user_id) -- <--- there was a coma right here
+        FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
 CREATE TABLE user_cuisine (

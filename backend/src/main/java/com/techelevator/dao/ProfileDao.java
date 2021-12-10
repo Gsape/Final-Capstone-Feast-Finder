@@ -9,7 +9,7 @@ public interface ProfileDao {
 
     List<Long> getCuisineIds(String[] cuisines);
 
-//    int addCuisines(int userId, Long[] idList);
+    String addCuisines(int userId, List<Long> idList);
 
 //    Profile getLocation(int userId);
 

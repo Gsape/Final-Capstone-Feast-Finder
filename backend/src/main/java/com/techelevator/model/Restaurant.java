@@ -4,15 +4,13 @@ public class Restaurant {
 
     private Long restaurantId;
     private String yelpId;
-    private String restaurantName;
     private boolean isShown;
 
     public Restaurant () {}
 
-    public Restaurant(Long restaurantId, String yelpId, String restaurantName, boolean isShown){
+    public Restaurant(Long restaurantId, String yelpId, boolean isShown){
         this.restaurantId = restaurantId;
         this.yelpId = yelpId;
-        this.restaurantName =restaurantName;
         this.isShown = isShown;
     }
 
@@ -30,14 +28,6 @@ public class Restaurant {
 
     public void setYelpId(String yelpId) {
         this.yelpId = yelpId;
-    }
-
-    public String getRestaurantName() {
-        return restaurantName;
-    }
-
-    public void setRestaurantName(String restaurantName) {
-        this.restaurantName = restaurantName;
     }
 
     public boolean isShown() {
