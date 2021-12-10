@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="feastForm">
     <container class='login-image-container'>
     <img id='login-image' src="loginpagecopy.jpg"/>
     </container>
@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import feastForm from "../components/feastForm";
+import feastForm from "@/components/feastForm.vue";
 
 export default {
   components: {
