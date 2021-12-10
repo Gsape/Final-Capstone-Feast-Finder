@@ -10,8 +10,8 @@ export default {
     return axios.post('/register', user)
   },
 
-  addForm(newForm) {
-    return axios.post('/', newForm)
+  addForm(user) {
+    return axios.post('/profile', user)
   }
 
 }

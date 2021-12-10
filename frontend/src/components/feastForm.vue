@@ -1,277 +1,197 @@
 <template>
   <div class="form">
-    <form v-on:submit.prevent="submitForm" class="q-form">
-        <label>
-            <h2>Feast Finder Form</h2>
-            <label for="zipcode" class="zipcode">Zipcode</label>
-                <input
-                    type="text"
-                    id="zipcode"
-                    class="form-control"
-                    placeholder="zipcode"
-                    required
-                    autofocus
-                    v:model="form.zipCode"
-                    maxlength="5"
-                    minlength="5"
-                    v-model="form.zipCode"
-                />   
-        </label>    
+    <form @submit.prevent="submitForm" method="post" class="q-form">
+      <label>
+        <h2>Feast Finder Form</h2>
+        <label for="zipcode" class="zipcode">Zipcode</label>
+        <input
+          type="text"
+          id="zipcode"
+          class="form-control"
+          placeholder="zipcode"
+          required
+          autofocus
+          v:model="form.zipCode"
+          maxlength="5"
+          minlength="5"
+          v-model="form.zipCode"
+        />
+      </label>
 
-        <label for="radius" class="radius">Radius</label>
-                <select name = "radius" id="radius" v-model="form.radius">
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="25">25</option>
-                </select> 
+      <label for="radius" class="radius">Radius</label>
+      <select name="radius" id="radius" v-model="form.radius">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+      </select>
 
-        <h2>Feasting Zone</h2>
+      <h2>Feasting Zone</h2>
 
-        <label class="checkbox-form" for="options.type">
+      <label class="checkbox-form" for="options.type">
         <div class="options" v-for="options in options" v-bind:key="options.id">
-            <label class="form-check-label">
-                {{ options.type }}
-            </label>
-            <input 
-                :id="options.type"
-                v-model="form.cuisineType"
-                type="checkbox"
-                :value="options.type"
-                @change="onChange"
-            >
-            </div>
-        </label>
+          <label class="form-check-label">
+            {{ options.type }}
+          </label>
+          <input
+            :id="options.type"
+            v-model="form.cuisineType"
+            type="checkbox"
+            :value="options.type"
+          />
+        </div>
+      </label>
     </form>
-        {{ options.type }}
+    {{ options.type }}
 
-    <button type="submit" id="submit" v-on:click="submitForm()">Submit</button>
+    <button type="submit" id="submit" v-on:click="submitForm">Submit</button>
   </div>
-
 </template>
 
 <script>
-
-import Authservice from '@/services/AuthService';
+import authService from "@/services/AuthService";
 
 export default {
+  data() {
+    return {
+      options: [
+        {
+          type: "Thai",
+        },
 
-        data() {
-            return {
-                options: [
-                    {
-                        type: 'Thai'
-                    },
+        {
+          type: "Deli",
+        },
 
-                    {
-                        type: 'Deli'
-                    },
+        {
+          type: "Pizza",
+        },
 
-                    {
-                        type: 'Pizza'
-                    },
+        {
+          type: "Chinese",
+        },
 
-                    {
-                        type: 'Chinese'
-                    },
+        {
+          type: "Healthy",
+        },
 
-                    {
-                        type: 'Healthy'
-                    },
+        {
+          type: "BBQ",
+        },
 
-                    {
-                        type: 'BBQ'
-                    },
+        {
+          type: "Seafood",
+        },
 
-                    {
-                        type: 'Seafood'
-                    },
+        {
+          type: "Italian",
+        },
 
-                    {
-                        type: 'Italian'
-                    },
+        {
+          type: "Ethiopian",
+        },
 
-                    {
-                        type: 'Ethiopian'
-                    },
+        {
+          type: "Sushi",
+        },
+      ],
 
-                    {
-                        type: 'Sushi'
-                    }
-                ],
+      form: {
+        zipCode: "",
+        radius: "",
+        cuisineType: [],
+      },
+    };
+  },
 
-                form: {
-                    zipCode: '',
-                    radius: '',
-                    cuisineType: []
-                },
-
-                // methods: {
-                //     submitForm() {
-                //         const newForm = {
-                //             zipCode: this.form.zipCode,
-                //             radius: this.form.radius,
-                //             cuisineType: this.form.cuisineType
-                //         };
-
-                //         Authservice.addForm(newForm)
-                //         console.log
-                //     }
-                // }
+  methods: {
+    submitForm() {
+      authService.addForm(this.form).then((response) => {
+        if (response.status == 200) {
+          this.$store.commit("SET_USER", response.data.form);
+          this.$router.push("/");
         }
+      });
     },
-
-     methods: {
-                submitForm() {
-                    const newForm = {
-                        zipCode: this.form.zipCode,
-                        radius: this.form.radius,
-                        cuisineType: this.form.cuisineType
-                    };
-
-                    Authservice
-                    .addForm(newForm)
-                    .then(response => {
-                        if (response.status === 201) {
-                            this.$state.response.data.token
-                            this.$router.push('/')
-                        }
-                    })
-                    // console.log
-                    }
-        }
-
-
-//     <template>
-// <div>
-//     <h1 class ="brandName">Git Forked</h1>
-//     <img id ="logo" src="GitForkedLogo (1).png" alt="logo">
-
-//     <form class="q-form">
-//         <h2>Location</h2>
-//         <label for="zipcode" class="sr-only">Zipcode</label>
-//             <input
-//                 type="text"
-//                 id="zipcode"
-//                 class="form-control"
-//                 placeholder="zipcode"
-//                 required
-//                 autofocus
-//             />
-//         <!-- <label for="radius" class="sr-only">Radius</label>
-//             <select name = "radius" id="radius">
-//                 <option value="5">5</option>
-//                 <option value="10">10</option>
-//                 <option value="15">15</option>
-//                 <option value="20">20</option>
-//                 <option value="25">25</option>
-//             </select>  -->
-
-//         <div id="ck-button">
-//             <input type="checkbox" id="Thai" value="Thai" v-model="checkedOptions">
-//                 <label for="thai">Thai</label>
-//             <input type="checkbox" id="Deli" value="Deli" v-model="checkedOptions">
-//                 <label for="deli">Deli</label>
-//             <input type="checkbox" id="Pizza" value="Pizza" v-model="checkedOptions">
-//                 <label for="pizza">Pizza</label>
-//             <input type="checkbox" id="Chinese" value="Chinese" v-model="checkedOptions">
-//                 <label for="chinese">Chinese</label> 
-//             <input type="checkbox" id="Healthy" value="Healthy" v-model="checkedOptions">
-//                 <label for="healthy">Healthy</label>
-//             <input type="checkbox" id="BBQ" value="BBQ" v-model="checkedOptions">
-//                 <label for="bbq">BBQ</label>
-//             <input type="checkbox" id="Seafood" value="Seafood" v-model="checkedOptions">
-//                 <label for="seafood">Seafood</label>  
-//             <input type="checkbox" id="Italian" value="Italian" v-model="checkedOptions">
-//                 <label for="italian">Italian</label>
-//             <input type="checkbox" id="Ethiopian" value="Ethiopian" v-model="checkedOptions">
-//                 <label for="ethiopian">Ethiopian</label>
-//             <input type="checkbox" id="Sushi" value="Sushi" v-model="checkedOptions">
-//                 <label for="sushi">Sushi</label>                               
-//         </div>
-
-//          <button type="submit">Submit</button>
-//     </form>
-}
+  },
+};
 </script>
 
 <style>
-    * {
-        font-family: sa;
-    }
+* {
+  font-family: sa;
+}
 
-    #logo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-    width: 25%;
-    }
+#logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  width: 25%;
+}
 
-    h1 {
-        text-align: center;
-    }
+h1 {
+  text-align: center;
+}
 
-    .form {
-        display: block;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 50px;
-    }
+.form {
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
 
-    .q-form{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-    width: 50%;
-    /* border: 2px solid black;
+.q-form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  width: 50%;
+  /* border: 2px solid black;
     border-radius: 5px; */
-    }
+}
 
-    button{
-     border: 1;
-     border-radius: 20px;
-     background: green;
-     font-family: serif;
-     font-size: 100%;
-     line-height: 1.2;
-     white-space: nowrap;
-     text-decoration: none;
-     padding: 1rem 2rem;
-     margin: 0.25rem;
-     cursor: pointer;       
-    
-    }
-    .form-check-label{
-        display: flex;
-        margin-left: 400px ;
-        font-family: serif;
-        font-size: 100%;
-                       
-    }
+button {
+  border: 1;
+  border-radius: 20px;
+  background: green;
+  font-family: serif;
+  font-size: 100%;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  margin: 0.25rem;
+  cursor: pointer;
+}
+.form-check-label {
+  display: flex;
+  margin-left: 400px;
+  font-family: serif;
+  font-size: 100%;
+}
 
-    .zipcode{
-        border-radius: 20px;
-        display: block;
-        padding: 10px;
-    }
-    #zipcode{
-        border-radius: 10px;
-        width: 200px;
-        height: 30px;
-    }
+.zipcode {
+  border-radius: 20px;
+  display: block;
+  padding: 10px;
+}
+#zipcode {
+  border-radius: 10px;
+  width: 200px;
+  height: 30px;
+}
 
-    .radius{       
-        display: block;
-        padding: 10px;
-        size: 100%;
-    }
-    #radius{
-        border-radius: 10px;
-        width: 200px;
-        height: 30px;
-    }
+.radius {
+  display: block;
+  padding: 10px;
+  size: 100%;
+}
+#radius {
+  border-radius: 10px;
+  width: 200px;
+  height: 30px;
+}
 </style>
