@@ -2,7 +2,6 @@ package com.techelevator.model;
 
 public class RestaurantDTO {
     private String yelpId;
-    private String restaurantName;
     private boolean isShown;
 
     public String getYelpId() {
@@ -13,15 +12,7 @@ public class RestaurantDTO {
         this.yelpId = yelpId;
     }
 
-    public String getRestaurantName() {
-        return restaurantName;
-    }
-
-    public void setRestaurantName(String restaurantName) {
-        this.restaurantName = restaurantName;
-    }
-
-    public boolean isShown() {
+    public boolean getIsShown() {
         return isShown;
     }
 
