@@ -1,7 +1,7 @@
 <template>
   <div id="register" class="text-center">
     <container class="login-image-container">
-      <img id="login-image" src="loginpagecopy.jpg" />
+
     </container>
     <form class="form-register" @submit.prevent="register">
       <div class="content">
@@ -77,7 +77,7 @@ export default {
               this.$store.commit("SET_AUTH_TOKEN", response.data.token);
               this.$store.commit("SET_USER", response.data.user);
               this.$router.push({
-                path: "/feastForm", //Change to location path
+                path: "/feastForm", 
                 query: { registration: "success" },
               });
             }
