@@ -42,21 +42,19 @@ public class UserController {
         this.profileDao = profileDao;
     };
 
-    // getHome() - client retrieves the zipcode and radius of their default/home location
+    // getProfile() - client retrieves the zipcode and radius of their default/home location
         // will need a HomeDTO and Home model
-//    @RequestMapping(path = "/profile", method = RequestMethod.GET)
-//    public Profile getHome(Principal username){
-//        if (username == null){
-//            System.out.println("username is null"); // needs to throw an exception instead
-//        }
-//        String userName = username.getName();
-//        int userId = userDao.findIdByUsername(userName);
-//
-//        profileDao.getLocation(userId); //this
-//        Profile hellyeah = new Profile();
-//        return hellyeah;
-//
-//    }
+    @RequestMapping(path = "/profile", method = RequestMethod.GET)
+    public Profile getProfile(Principal username){
+        if (username == null){
+            System.out.println("username is null"); // needs to throw an exception instead
+        }
+        String userName = username.getName();
+        int userId = userDao.findIdByUsername(userName);
+        Profile profile = profileDao.getLocation(userId); //this
+        profile.setCuisineType(profileDao.getCuisines(userId));
+        return profile;
+    }
 
     // setInitialPreferences() - client sets the zip code, radius, and cuisine preferences that are their initial default
         // may not need a DTO or model
@@ -84,15 +82,6 @@ public class UserController {
         return profileDao.addCuisines(userId, idList);
     }
 
-    // getPreferences() - client retrieves their cuisine preferences
-        // may not need a DTO or model
-    @RequestMapping (path = "/profile", method = RequestMethod.GET)
-    public List<String> getPreferences(){
-        List<String> listy = new ArrayList<>();
-        return listy;
-    }
-
-
     // setUserFave() - client adds a new FAVE restaurant to the restaurant table
         // will need a RestaurantDTO and model
     @ResponseStatus(HttpStatus.CREATED)
@@ -104,8 +93,7 @@ public class UserController {
         String userName = username.getName();
         int userId = userDao.findIdByUsername(userName);
         String success = restaurantDao.addUserRestaurant(userId, restaurant);
-        int successful = Integer.parseInt(success);
-        if (successful == 1){
+        if (success != null){
             return "Success!";
         } else {
             return "Operation failed.";
@@ -137,8 +125,7 @@ public class UserController {
         String userName = username.getName();
         int userId = userDao.findIdByUsername(userName);
         String success = restaurantDao.addUserRestaurant(userId, restaurant);
-        int successful = Integer.parseInt(success);
-        if (successful == 1){
+        if (success != null){
             return "Success!";
         } else {
             return "Operation failed.";

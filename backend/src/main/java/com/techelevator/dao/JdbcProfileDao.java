@@ -33,9 +33,12 @@ public class JdbcProfileDao implements ProfileDao {
         System.out.println(stringCuisines);
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, stringCuisines);
         List<Long> idList = new ArrayList<Long>();
+        String sout = "";
         while(results.next()) {
-            idList.add(results.getLong("cuisine_id"));
+            sout = results.getString("cuisine_id");
+//            idList.add(results.getLong("cuisine_id"));
         }
+        System.out.println(sout);
         return idList;
     }
 
@@ -54,23 +57,40 @@ public class JdbcProfileDao implements ProfileDao {
         }
     }
 
-//    public Profile getLocation(Long userId){
-//
-//    }
+    @Override
+    public Profile getLocation(int userId){
+        Profile returnThis = new Profile();
+        String sql = "SELECT * FROM users WHERE user_id = ?";
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, userId);
+        if (result.next()){
+            returnThis.setRadius(result.getInt("radius"));
+            returnThis.setZipCode(result.getInt("zip_code"));
+            returnThis.setUsername(result.getString("username"));
+        }
+        return returnThis;
+    }
 
     @Override
     public Profile setProfile(Profile details, int userId){
         String sql = "UPDATE users SET radius = ?, zip_code = ? WHERE user_id = ? RETURNING username";
         String returnedUsername = jdbcTemplate.queryForObject(sql, String.class, details.getRadius(), details.getZipCode(), userId);
         String[] stringList = details.getCuisineType().toArray(new String[0]);
-        List<Long> idList = getCuisineIds(stringList);
-        sql = "INSERT INTO user_cuisine (user_id, cuisine_id) VALUES (?, ?)";
-        int success = 0;
-        for (Long element : idList){
-            success += jdbcTemplate.queryForObject(sql, int.class, userId, element);
+        sql = "INSERT INTO user_cuisine (user_id, cuisine) VALUES (?, ?)";
+        for (String element : stringList){
+            jdbcTemplate.update(sql, userId, element);
         }
         details.setUsername(returnedUsername);
         return details;
     }
 
+    @Override
+    public List<String> getCuisines(int userId){
+        String sql = "SELECT cuisine FROM user_cuisine WHERE user_id = ?";
+        List<String> preferences = new ArrayList<>();
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        while (results.next()){
+            preferences.add(results.getString("cuisine"));
+        }
+        return preferences;
+    }
 }

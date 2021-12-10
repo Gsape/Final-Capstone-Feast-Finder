@@ -84,29 +84,19 @@ CREATE TABLE users (
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
-CREATE TABLE cuisine (
-        cuisine_id SERIAL,
-        cuisine_type VARCHAR (255),
-
-        PRIMARY KEY (cuisine_id)
-);
-
 CREATE TABLE user_restaurants (
         user_id SERIAL,
         yelp_id VARCHAR (255),
         is_shown BOOLEAN,
 
-        PRIMARY KEY (user_id),
         FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
 CREATE TABLE user_cuisine (
         user_id SERIAL,
-        cuisine_id SERIAL,
+        cuisine VARCHAR (255),
 
-        PRIMARY KEY (user_id, cuisine_id),
-        FOREIGN KEY (user_id) REFERENCES users (user_id),
-        FOREIGN KEY (cuisine_id) REFERENCES cuisine (cuisine_id)
+        FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
 ALTER TABLE users
