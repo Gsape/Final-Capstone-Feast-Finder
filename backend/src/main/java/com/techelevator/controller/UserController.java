@@ -42,6 +42,7 @@ public class UserController {
         this.profileDao = profileDao;
     };
 
+
     // getProfile() - client retrieves the zipcode and radius of their default/home location
         // will need a HomeDTO and Home model
     @RequestMapping(path = "/profile", method = RequestMethod.GET)
