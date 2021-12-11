@@ -3,8 +3,7 @@
     <container class='login-image-container'>
     </container>
     <form class="form-signin" @submit.prevent="login">
-      <h1 id='appname'>Welcome to Git Forked</h1>
-      <h2 class="h3 mb-3 font-weight-normal">Sign in to Swipe</h2>
+      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
       <div
         class="alert alert-danger"
         role="alert"
@@ -19,25 +18,15 @@
       <label for="username" class="sr-only"></label>
         <input type="text" id="username" class="form-control" placeholder="Username" v-model="user.username" required autofocus/>
       <label for="password" class="sr-only"></label>
-      
         <input type="password" id="password" class="form-control px-3" placeholder="Password" v-model="user.password" required/>
       </span>
       <router-link id="Need_an_account" :to="{ name: 'register' }">Need an account?</router-link>
       <button id="Sign_in" type="submit">Sign in</button>
-      
     </form>
-    <!-- <section>
-      <img id="backgroundimg" src='https://media.istockphoto.com/photos/downtown-skyline-of-pittsburgh-pennsylvania-at-sunset-picture-id1047440036?b=1&k=20&m=1047440036&s=170667a&w=0&h=Qom8CzxTQHmXGjJET56GxTxU1kDmPX0xoxVq4hDL8Jc='/>
-    </section> -->
-      <section>
-      <img id="backgroundimg2" src='https://images.unsplash.com/photo-1503197553955-b4eafae3e08e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1106&q=80'/>
-    </section>
   </div>
 </template>
-
 <script>
 import authService from "../services/AuthService";
-
 export default {
   name: "login",
   components: {},
@@ -63,7 +52,6 @@ export default {
         })
         .catch(error => {
           const response = error.response;
-
           if (response.status === 401) {
             this.invalidCredentials = true;
           }
@@ -72,13 +60,10 @@ export default {
   }
 };
 </script>
-
 <style>
-
 span {
   display: block;
   text-align: center;
-
 }
 #Need_an_account{
   display: block;
@@ -86,13 +71,10 @@ span {
   padding: 10px;
 }
 #Sign_in{
-  
   text-align: center;
   margin: auto;
   display: flex;
-  
 }
-
 form{
   box-sizing: border-box;
   margin: 100px;
@@ -102,7 +84,6 @@ form{
   background-color: rgba(255, 255, 255, .15);
   backdrop-filter: blur(5px);
 }
-
 #login-image {
   position: absolute;
   width: 100%;
@@ -114,24 +95,19 @@ form{
   object-fit: contain;
 }
 body {
-	background: linear-gradient(-45deg, #faf883, #f781ae,#9c3aec, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	
+  background: linear-gradient(-45deg, #FAF883, #F781AE,#9C3AEC, #23D5AB);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
-
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
-
-
-
 </style>
