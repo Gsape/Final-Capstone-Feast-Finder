@@ -1,8 +1,7 @@
 <template>
   <div id="login" class="text-center">
-    <section>
-      <img id="logo" src="GitForkedLogo.png"/>
-    </section>
+    <container class='login-image-container'>
+    </container>
     <form class="form-signin" @submit.prevent="login">
       <h1 id='appname'>Welcome to Git Forked</h1>
       <h2 class="h3 mb-3 font-weight-normal">Sign in to Swipe</h2>
@@ -16,27 +15,16 @@
         role="alert"
         v-if="this.$route.query.registration"
       >Thank you for registering, please sign in.</div>
-      <label for="username" class="sr-only">Username</label>
-      <input
-        type="text"
-        id="username"
-        class="form-control"
-        placeholder="Username"
-        v-model="user.username"
-        required
-        autofocus
-      />
-      <label for="password" class="sr-only">Password</label>
-      <input
-        type="password"
-        id="password"
-        class="form-control"
-        placeholder="Password"
-        v-model="user.password"
-        required
-      />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      <span>
+      <label for="username" class="sr-only"></label>
+        <input type="text" id="username" class="form-control" placeholder="Username" v-model="user.username" required autofocus/>
+      <label for="password" class="sr-only"></label>
+      
+        <input type="password" id="password" class="form-control px-3" placeholder="Password" v-model="user.password" required/>
+      </span>
+      <router-link id="Need_an_account" :to="{ name: 'register' }">Need an account?</router-link>
+      <button id="Sign_in" type="submit">Sign in</button>
+      
     </form>
     <!-- <section>
       <img id="backgroundimg" src='https://media.istockphoto.com/photos/downtown-skyline-of-pittsburgh-pennsylvania-at-sunset-picture-id1047440036?b=1&k=20&m=1047440036&s=170667a&w=0&h=Qom8CzxTQHmXGjJET56GxTxU1kDmPX0xoxVq4hDL8Jc='/>
@@ -70,7 +58,7 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/");
+            this.$router.push("/");                                           // this takes us "home"
           }
         })
         .catch(error => {
@@ -85,53 +73,65 @@ export default {
 };
 </script>
 
-<style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Genos:ital,wght@1,100&display=swap');
+<style>
 
-#login {
-  font-family: 'Genos', sans-serif;
-  display: flex;
-  justify-content: center;
-  /* background-image: linear-gradient(to left, rgba(223, 117, 217, 0.603), rgba(125, 204, 224, 0.705)); */
-  padding: 3rem;
-  border-radius: 15px 50px 30px 5px;
-  border-width: .5rem;
-  margin-right: 60px;
-  margin-left: 60px;
+span {
+  display: block;
+  text-align: center;
+
 }
-
-label {
-  display: flex;
-  font-size: 20px;
-  font-weight: bold;
+#Need_an_account{
+  display: block;
+  text-align: center;
+  padding: 10px;
 }
-
-a {
+#Sign_in{
+  
+  text-align: center;
+  margin: auto;
   display: flex;
-  justify-content: left;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-#backgroundimg {
-  display: flex;
-  justify-content: center;
-  padding: 5rem;
-  border-radius: 15px 50px 30px 5px;
   
 }
 
-#logo {
-  width: 150px;
-  height: auto;
- }
+form{
+  box-sizing: border-box;
+  margin: 100px;
+  padding: 50px;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
+}
 
-#backgroundimg2 {
+#login-image {
   position: absolute;
-  width: 100rem;
-  padding: 200px;
-  margin: -200px;
+  width: 100%;
+  padding: auto;
+  margin: auto;
   left: 0px;
   top: 0px;
   z-index: -1;
+  object-fit: contain;
 }
+body {
+	background: linear-gradient(-45deg, #faf883, #f781ae,#9c3aec, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
 </style>

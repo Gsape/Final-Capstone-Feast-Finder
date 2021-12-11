@@ -1,10 +1,7 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <section>
-      <img id="logo" src="GitForkedLogo.png"/>
-    </section>
-    <p>You must be authenticated to see this</p>
+    <h1>Feast Finder</h1>
+    <img src="GitForkedLogo (1).png" alt="logo" class="logo">
   </div>
 </template>
 
@@ -16,11 +13,11 @@ export default {
 </script>
 
 <style scoped>
+  .logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 
-#logo {
-  width: 150px;
-  height: auto;
- }
- 
- 
 </style>
