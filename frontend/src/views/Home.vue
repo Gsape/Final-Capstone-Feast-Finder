@@ -1,16 +1,23 @@
 <template>
   <div class="home">
     <h1>Feast Finder</h1>
-    <img src="GitForkedLogo (1).png" alt="logo" class="logo">
+    <test-card id="test-card"/>
   </div>
 </template>
 
 <script>
+import TestCard from '../components/TestCard.vue';
+
 export default {
-  name: "home", 
+  name: "home",
+  components: {
+    TestCard
+  }
+  }
   
-};
 </script>
+
+
 
 <style scoped>
   .logo {
@@ -18,6 +25,15 @@ export default {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+
+#test-card {
+  margin: auto;
+  width: 233px;
+  height: 74px;
+  vertical-align:middle;
+  align-items: center;
+  padding: 10px;
 }
 
 </style>

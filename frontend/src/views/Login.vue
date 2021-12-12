@@ -23,7 +23,9 @@
       <router-link id="Need_an_account" :to="{ name: 'register' }">Need an account?</router-link>
       <button id="Sign_in" type="submit">Sign in</button>
     </form>
+    
   </div>
+  
 </template>
 <script>
 import authService from "../services/AuthService";
