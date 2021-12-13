@@ -1,12 +1,17 @@
 <template>
   <div class="home">
     <h1>Feast Finder</h1>
-    <img src="GitForkedLogo (1).png" alt="logo" class="logo">
+    <sideBar/>
+    <img src="GitForkedLogo.png" alt="logo" class="logo">
   </div>
 </template>
 
 <script>
+import sideBar from "@/components/sideBar.vue";
+
 export default {
+
+  components: {sideBar},
   name: "home"
 };
 </script>
