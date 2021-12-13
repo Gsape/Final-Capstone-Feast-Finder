@@ -73,14 +73,13 @@ public class UserController {
     // updatePreferences() - client updates their cuisine preferences
         // may not need a DTO or model
     @RequestMapping (path = "/profile", method = RequestMethod.PUT)
-    public String updatePreferences(Principal username, @RequestBody String[] cuisines){
+    public Profile updatePreferences(Principal username, @RequestBody Profile profile){
         if (username == null){
             System.out.println("username is null"); // needs to throw an exception instead
         }
         String userName = username.getName();
         int userId = userDao.findIdByUsername(userName);
-        List<Long> idList = profileDao.getCuisineIds(cuisines);
-        return profileDao.addCuisines(userId, idList);
+        return profileDao.updateProfile(profile, userId);
     }
 
     // setUserFave() - client adds a new FAVE restaurant to the restaurant table
