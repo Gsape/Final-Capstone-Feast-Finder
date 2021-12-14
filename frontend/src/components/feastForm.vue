@@ -28,7 +28,12 @@
       </select>
 
       <h2>Feasting Zone</h2>
-
+    <ul id="cuisine-list" class="list-group list-group-horizontal" for="options.type">
+      <li class="list-group-item" v-for="options in options" v-bind:key="options.id">{{options.type}}
+        <input class="form-check-input me-1" type="checkbox" v-model="form.cuisineType" :value="options.type" />
+      </li>     
+    </ul>
+<!-- 
       <label class="checkbox-form" for="options.type">
         <div class="options" v-for="options in options" v-bind:key="options.id">
           <label class="form-check-label">
@@ -41,11 +46,11 @@
             :value="options.type"
           />
         </div>
-      </label>
+      </label> -->
     </form>
     {{ options.type }}
 
-    <button type="submit" id="submit" v-on:click="submitForm">Submit</button>
+    <button class="btn btn-primary btn-lg" type="submit" id="submit" v-on:click="submitForm">Submit</button>
   </div>
 </template>
 
@@ -95,6 +100,132 @@ export default {
         {
           type: "Sushi",
         },
+
+        {
+          type: "Japanese",
+        },
+
+        {
+          type: "Poke",
+        },
+
+        {
+          type: "Burger",
+        },
+
+        {
+          type: "Hotdogs",
+        },
+
+        {
+          type: "Fried Chicken",
+        },
+
+        {
+          type: "American",
+        },
+
+        {
+          type: "Café",
+        },
+
+        {
+          type: "Coffee",
+        },
+
+        {
+          type: "Tea",
+        },
+
+        {
+          type: "Fast Food",
+        },
+            {
+          type: "Burrito",
+        },
+
+        {
+          type: "Boba Tea",
+        },
+
+        {
+          type: "Vietanamese",
+        },
+
+        {
+          type: "Argentinian",
+        },
+
+        {
+          type: "Steak House",
+        },
+
+        {
+          type: "Milkshake",
+        },
+
+        {
+          type: "Bakery",
+        },
+
+        {
+          type: "Bar",
+        },
+
+        {
+          type: "Brewery",
+        },
+
+        {
+          type: "Wine",
+        },
+          {
+          type: "Middle Eastern",
+        },
+
+        {
+          type: "Kosher",
+        },
+
+        {
+          type: "Noodles",
+        },
+         {
+          type: "Tacos",
+        },
+
+        {
+          type: "Soul Food",
+        },
+
+        {
+          type: "Gluten Free",
+        },
+
+        {
+          type: "Vegan",
+        },
+
+        {
+          type: "Vegetarian",
+        },
+
+        {
+          type: "Indian",
+        },
+
+        {
+          type: "Halal",
+        },
+
+        {
+          type: "Korean",
+        },
+        {
+          type: "Buffet",
+        },
+        
+        
       ],
 
       form: {
@@ -108,7 +239,7 @@ export default {
   methods: {
     submitForm() {
       authService.addForm(this.form).then((response) => {
-        if (response.status == 200) {
+        if (response.status == 201) {
           this.$store.commit("SET_USER", response.data.form);
           this.$router.push("/");
         }
@@ -119,8 +250,11 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@700&display=swap');
+
 * {
-  font-family: sa;
+    font-family: 'Old Standard TT', serif;
+    
 }
 
 #logo {
@@ -133,6 +267,7 @@ export default {
 
 h1 {
   text-align: center;
+  font-size: 55px;
 }
 
 .form {
@@ -194,4 +329,18 @@ button {
   width: 200px;
   height: 30px;
 }
+
+#cuisine-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  grid-auto-rows: auto;
+  grid-gap: 5px;
+}
+
+@media screen and (min-width: 768px) {  
+    #cusisine-list .collapse {
+            display:block;
+    }  
+}
+
 </style>
