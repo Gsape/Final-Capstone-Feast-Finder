@@ -21,11 +21,31 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    yelpToken: "2MCP7YJJ-etjT0Mj5aB7skyln1iue4QI-4HuaG5GIt935jt_DfEz3fuoDSdERXDuQWre6R3qUcNDGaTP8olxLBzg4Fh-__QCTQ8zsCAT1xFX84_klZ0_Cc_3x4yqYXYx",
-    restaurantList: []
-  },
-  modules: {
-    TestModule
+
+    restaurant: {
+      businessID: '',
+      business: '',
+      address: '',
+      imgURL: '',
+      phone: '',
+      rating: 0,
+      price: '',
+      cuisine: ''
+    },
+
+    responseJSON: {},
+    // restaurant: {
+    //   businessID: 'gR9DTbKCvezQlqvD7_FzPw',
+    //   business: 'North India Restaurant',
+    //   address: '123 Second St',
+    //   imgURL: 'https://s3-media1.fl.yelpcdn.com/bphoto/AHm5LPigScMuUG-bT9jqdw/o.jpg',
+    //   phone: '123-123-1234',
+    //   rating: 5,
+    //   price: '$$',
+    //   cuisine: 'Indian'
+    // },
+
+    searchResults: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -44,8 +64,9 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    SET_RESTAURANTS(state, restaurantList){
-      state.restaurantList = restaurantList;
+
+    SET_RESTAURANT(state, data) {
+      state.restaurant = data;
     }
   }
 })

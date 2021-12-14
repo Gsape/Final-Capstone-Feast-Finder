@@ -2,55 +2,26 @@
   <div>
   <header>
     <h1>Feast Finder</h1>
-    <img src="GitForkedLogo (1).png" alt="logo" class="logo">
-    </header>
-  <div class="home">
-    <nav-bar />
-    <single-card class="navigation" />
-  </div>
+   <b-container>
+      <b-row class="vh-100" align-v="center">
+        <b-col></b-col>
+        <b-col> <card/> </b-col>
+        <b-col></b-col>
+      </b-row>   
+   </b-container>    
   </div>
 </template>
 
 <script>
-import NavBar from '../components/NavBar.vue';
-import SingleCard from "../components/SingleCard.vue"
-
+import Card from '../components/card.vue';
+ 
 export default {
-  name: "home",
-  components: { SingleCard, NavBar }
+  components: {Card},
+  name: "home"
 };
 </script>
 
 <style scoped>
-
-.home {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-/* .logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-} */
-
-.navigation {
- display: flex;
- flex-grow: 1;
- 
-
-}
-
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-content: flex-start;
-  border-bottom: solid, 10px, black;
-}
 
 header > img {
   max-width: 10%;

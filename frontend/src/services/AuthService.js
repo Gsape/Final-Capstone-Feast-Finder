@@ -10,8 +10,9 @@ export default {
     return axios.post('/register', user)
   },
 
-  addForm(user) {
-    return axios.post('/profile', user)
+  yelpKey() {
+    return axios.get('/login')
   }
 
 }
+
