@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import authService from "@/services/AuthService";
+import userService from "@/services/UserService";
 
 export default {
   data() {
@@ -107,10 +107,12 @@ export default {
 
   methods: {
     submitForm() {
-      authService.addForm(this.form).then((response) => {
-        if (response.status == 200) {
+      userService.addForm(this.form).then((response) => {
+        if (response.status == 201) {
           this.$store.commit("SET_USER", response.data.form);
           this.$router.push("/");
+        } else {
+          this.$router.push("/login")
         }
       });
     },

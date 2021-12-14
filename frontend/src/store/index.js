@@ -19,7 +19,32 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+
+    restaurant: {
+      businessID: '',
+      business: '',
+      address: '',
+      imgURL: '',
+      phone: '',
+      rating: 0,
+      price: '',
+      cuisine: ''
+    },
+
+    responseJSON: {},
+    // restaurant: {
+    //   businessID: 'gR9DTbKCvezQlqvD7_FzPw',
+    //   business: 'North India Restaurant',
+    //   address: '123 Second St',
+    //   imgURL: 'https://s3-media1.fl.yelpcdn.com/bphoto/AHm5LPigScMuUG-bT9jqdw/o.jpg',
+    //   phone: '123-123-1234',
+    //   rating: 5,
+    //   price: '$$',
+    //   cuisine: 'Indian'
+    // },
+
+    searchResults: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -37,6 +62,10 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+
+    SET_RESTAURANT(state, data) {
+      state.restaurant = data;
     }
   }
 })
