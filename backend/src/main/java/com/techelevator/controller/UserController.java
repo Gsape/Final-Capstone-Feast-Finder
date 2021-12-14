@@ -30,7 +30,8 @@ import java.util.List;
 @RestController
 @CrossOrigin
 
-public class UserController {
+public class
+UserController {
 
     private UserDao userDao;
     private RestaurantDao restaurantDao;

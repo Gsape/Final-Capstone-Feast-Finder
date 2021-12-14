@@ -108,9 +108,11 @@ export default {
   methods: {
     submitForm() {
       userService.addForm(this.form).then((response) => {
-        if (response.status == 200) {
+        if (response.status == 201) {
           this.$store.commit("SET_USER", response.data.form);
           this.$router.push("/");
+        } else {
+          this.$router.push("/login")
         }
       });
     },

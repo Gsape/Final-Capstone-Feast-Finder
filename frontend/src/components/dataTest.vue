@@ -1,8 +1,9 @@
 <template>
   <div>
-    <h1>Restaurant</h1>
-    <h2>{{ JSONObject }}</h2>
-
+    <!-- <h1>Restaurant</h1> -->
+    <!-- <h2>{{ restaurant }}</h2> -->
+    <h2>{{ restaurant }}</h2>
+    <h2>{{ restaurant.id }}</h2>
     <h1>Yelp Token</h1>
     <h1>Loved Restaurant Ids</h1>
     <h1>Hated Restaurant Ids</h1>
@@ -22,8 +23,9 @@ export default {
   name: "data-test",
   data() {
     return {
-      businessID: 0,
-      reponseJSON: {}
+      businessID: '',
+      address: '',
+      reponseJSON: {},
     };
   },
 
@@ -32,9 +34,17 @@ export default {
   methods: {
     getRestaurant() {
       yelpService
-        .getSingleRestaurant('gR9DTbKCvezQlqvD7_FzPw') // this.$route.params.businessID
+        .getSingleRestaurant(this.$route.params.businessID) // this.$route.params.businessID
         .then((response) => {
-          this.$store.commit("SET_RESTAURANT", response.data.restaurant);
+            this.$store.commit("SET_RESTAURANT", response.data);
+            // this.$router.push('/')
+        })
+        .catch(error => {
+          if (error.response && error.response.status === 404) {
+            alert("noooo");
+            console.log(error.response.status)
+          }
+          // this.$router.push("/login");
         });
     },
 
