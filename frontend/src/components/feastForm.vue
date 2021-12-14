@@ -45,6 +45,7 @@
             type="checkbox"
             :value="options.type"
           />
+          <div>
         </div>
       </label> -->
     </form>
@@ -267,6 +268,11 @@ export default {
   width: 25%;
 }
 
+.options{
+  display: flex;
+    justify-content: space-between;
+}
+
 h1 {
   text-align: center;
   font-size: 55px;
@@ -274,6 +280,8 @@ h1 {
 
 .form {
   display: block;
+  width:100%;
+  max-width: 50rem;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -285,7 +293,7 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
-  width: 50%;
+  width: 100%;
   /* border: 2px solid black;
     border-radius: 5px; */
 }
@@ -293,7 +301,8 @@ h1 {
 button {
   border: 1;
   border-radius: 20px;
-  background: green;
+  background:#0d6efd;
+  
   font-family: serif;
   font-size: 100%;
   line-height: 1.2;
@@ -305,9 +314,9 @@ button {
 }
 .form-check-label {
   display: flex;
-  margin-left: 400px;
   font-family: serif;
   font-size: 100%;
+  width:100%;
 }
 
 .zipcode {

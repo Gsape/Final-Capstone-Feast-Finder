@@ -76,11 +76,12 @@ export default {
             if (response.status == 201) {
               // this.$store.commit("SET_AUTH_TOKEN", response.data.token);
               // this.$store.commit("SET_USER", response.data.user);
-              this.$router.push({
-                path: "/login", 
-                // query: { registration: "success" },
-              });
-            }
+              // this.$router.push({
+              //   path: "/", 
+              //   query: { registration: "success" },
+              // });
+              this.$router.push('/login')
+            }            
           })
           .catch((error) => {
             const response = error.response;
