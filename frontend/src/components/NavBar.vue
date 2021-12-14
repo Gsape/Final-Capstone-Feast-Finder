@@ -1,8 +1,10 @@
 <template>
   <div class="form">
+    <p> Profile </p>
+    <p> Search </p>
     <form @submit.prevent="submitForm" method="post" class="q-form">
-      <label>
-        <h2>Feast Finder Form</h2>
+      
+      <div>
         <label for="zipcode" class="zipcode">Zipcode</label>
         <input
           type="text"
@@ -16,7 +18,7 @@
           minlength="5"
           v-model="form.zipCode"
         />
-      </label>
+      </div>
 
       <label for="radius" class="radius">Radius</label>
       <select name="radius" id="radius" v-model="form.radius">
@@ -27,12 +29,8 @@
         <option value="25">25</option>
       </select>
 
-      <h2>Feasting Zone</h2>
-
-      <label class="checkbox-form" for="options.type"></label>
-      <div class="row">
-        <div class="options col-sm-6" v-for="options in options" v-bind:key="options.id">
-
+      <div class="checkbox-form" for="options.type">
+        <div class="options" v-for="options in options" v-bind:key="options.id">
           <label class="form-check-label">
             {{ options.type }}
           </label>
@@ -42,32 +40,21 @@
             type="checkbox"
             :value="options.type"
           />
-          <div>
         </div>
-        </div>
-        </div>
-      
+      </div>
     </form>
-    {{ options.type }}
+    
 
     <button type="submit" id="submit" v-on:click="submitForm">Submit</button>
-    <!-- 
-      ADD BUTTON TO SET FORM AS DEFAULT OPTIONS - IE POST TO THE SERVER DATABASE
-      REMEMBER TO UNCOMMENT OUT USERSERVE IMPORT BELOW
-    -->
   </div>
 </template>
 
 <script>
-// import userService from "@/services/UserService";
-
-import YelpService from "@/services/YelpService";
+import authService from "@/services/AuthService";
 
 export default {
-  name: "feastForm",
   data() {
     return {
-      // need toupdate hte list
       options: [
         {
           type: "Thai",
@@ -120,22 +107,15 @@ export default {
 
   methods: {
     submitForm() {
-      for (let i = 0; i < 2; i++){
-        let stringCuisine = this.form.cuisineType[i];
-        YelpService.getSearchResults(stringCuisine, this.form.zipCode, this.computedRadius).then((response) =>{
-        this.$store.commit("SET_LIST", response.data)});
-      }
+      authService.addForm(this.form).then((response) => {
+        if (response.status == 200) {
+          this.$store.commit("SET_USER", response.data.form);
+          this.$router.push("/");
+        }
+      });
     },
   },
-  computed: {
-      computedCuisineString(){
-          return this.form.cuisineType[0];
-        },
-      computedRadius(){
-        return this.form.radius*1609;
-      }
-  }
-}
+};
 </script>
 
 <style>
@@ -151,19 +131,12 @@ export default {
   width: 25%;
 }
 
-.options{
-  display: flex;
-    justify-content: space-between;
-}
-
 h1 {
   text-align: center;
 }
 
 .form {
   display: block;
-  width:100%;
-  max-width: 50rem;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -175,7 +148,7 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
-  width: 100%;
+  width: 50%;
   /* border: 2px solid black;
     border-radius: 5px; */
 }
@@ -183,8 +156,7 @@ h1 {
 button {
   border: 1;
   border-radius: 20px;
-  background:#0d6efd;
-  
+  background: green;
   font-family: serif;
   font-size: 100%;
   line-height: 1.2;
@@ -198,7 +170,6 @@ button {
   display: flex;
   font-family: serif;
   font-size: 100%;
-  width:100%;
 }
 
 .zipcode {
@@ -221,5 +192,9 @@ button {
   border-radius: 10px;
   width: 200px;
   height: 30px;
+}
+
+.options{
+  
 }
 </style>
