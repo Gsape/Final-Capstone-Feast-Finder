@@ -11,22 +11,20 @@
       <h1>Single Restaurant</h1>
       <p></p>
       <h1>List of Restaurants</h1>
-      <div v-for="restaurants in allRestaurants" :key="restaurant.id" class="listR"></div>
+      <p></p>
   </div>
 </template>
 
 <script>
-
-import { mapGetters, mapActions } from 'vuex';
+import YelpService from "../services/YelpService";
 
 export default {
-  name: "TestPage",
   methods: {
-    ...mapActions(['fetchRestaurants'])
-  },
-  computed: mapGetters(['allRestaurants']),
-  created(){
-    this.fetchRestaurants();
+    listRestaurants(){
+      YelpService.getRestaurants().then(response => {
+        this.$store.commit("SET_RESTAURANTS", response.data);
+      })
+    }
   }
 }
 </script>
