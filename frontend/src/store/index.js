@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
-import TestModule from './modules/TestModule';
+// import TestModule from './modules/TestModule';
 
  /* The authorization header is set for axios when you login but what happens when you come back or
  * the page is refreshed. When that happens you need to check for the token in local storage and if it
@@ -45,7 +45,7 @@ export default new Vuex.Store({
     //   cuisine: 'Indian'
     // },
 
-    searchResults: []
+    searchResults: {}
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -67,6 +67,9 @@ export default new Vuex.Store({
 
     SET_RESTAURANT(state, data) {
       state.restaurant = data;
+    },
+    SET_LIST(state, data){
+      state.searchResults.unshift(data);
     }
   }
 })

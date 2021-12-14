@@ -68,10 +68,10 @@ const router = new Router({
       path: "/test-view",
       name: "test-view",
       component: TestView
-    }
+    },
 
     {
-      path: "/test/:businessID",
+      path: "/test",
       name: "test",
       component: dataTest
     },

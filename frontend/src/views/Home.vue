@@ -2,6 +2,7 @@
   <div>
   <header>
     <h1>Feast Finder</h1>
+    </header>
    <b-container>
       <b-row class="vh-100" align-v="center">
         <b-col></b-col>
@@ -10,6 +11,7 @@
       </b-row>   
    </b-container>    
    <side-bar/>
+   <router-link v-bind:to="{ name: 'test' }">LINKKKKKKKKKKKK</router-link>
   </div>
 </template>
 
