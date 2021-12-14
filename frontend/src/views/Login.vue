@@ -66,7 +66,6 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@700&display=swap');
 
-
 #welcome-message {
   font-family: 'Old Standard TT', serif;
   font-size: 35px;

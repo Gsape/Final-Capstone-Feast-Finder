@@ -238,7 +238,7 @@ export default {
 
   methods: {
     submitForm() {
-      authService.addForm(this.form).then((response) => {
+      userService.addForm(this.form).then((response) => {
         if (response.status == 201) {
           this.$store.commit("SET_USER", response.data.form);
           this.$router.push("/");
