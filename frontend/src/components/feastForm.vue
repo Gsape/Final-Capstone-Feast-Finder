@@ -29,8 +29,10 @@
 
       <h2>Feasting Zone</h2>
 
-      <label class="checkbox-form" for="options.type">
-        <div class="options" v-for="options in options" v-bind:key="options.id">
+      <label class="checkbox-form" for="options.type"></label>
+      <div class="row">
+        <div class="options col-sm-6" v-for="options in options" v-bind:key="options.id">
+
           <label class="form-check-label">
             {{ options.type }}
           </label>
@@ -40,8 +42,11 @@
             type="checkbox"
             :value="options.type"
           />
+          <div>
         </div>
-      </label>
+        </div>
+        </div>
+      
     </form>
     {{ options.type }}
 
@@ -131,12 +136,19 @@ export default {
   width: 25%;
 }
 
+.options{
+  display: flex;
+    justify-content: space-between;
+}
+
 h1 {
   text-align: center;
 }
 
 .form {
   display: block;
+  width:100%;
+  max-width: 50rem;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -148,7 +160,7 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
-  width: 50%;
+  width: 100%;
   /* border: 2px solid black;
     border-radius: 5px; */
 }
@@ -156,7 +168,8 @@ h1 {
 button {
   border: 1;
   border-radius: 20px;
-  background: green;
+  background:#0d6efd;
+  
   font-family: serif;
   font-size: 100%;
   line-height: 1.2;
@@ -168,9 +181,9 @@ button {
 }
 .form-check-label {
   display: flex;
-  margin-left: 400px;
   font-family: serif;
   font-size: 100%;
+  width:100%;
 }
 
 .zipcode {
