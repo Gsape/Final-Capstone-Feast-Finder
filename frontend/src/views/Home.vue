@@ -8,14 +8,16 @@
         <b-col></b-col>
       </b-row>   
    </b-container>    
+   <side-bar/>
   </div>
 </template>
 
 <script>
 import Card from '../components/card.vue';
+import SideBar from '../components/sideBar.vue';
  
 export default {
-  components: {Card},
+  components: {Card, SideBar},
   name: "home"
 };
 </script>
