@@ -16,4 +16,6 @@ public interface ProfileDao {
     Profile setProfile(Profile profile, int userId);
 
     List<String> getCuisines(int userId);
+
+    Profile updateProfile(Profile details, int userId);
 }

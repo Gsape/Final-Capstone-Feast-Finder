@@ -51,16 +51,24 @@
     </form>
     {{ options.type }}
 
-    <button class="btn btn-primary btn-lg" type="submit" id="submit" v-on:click="submitForm">Submit</button>
+    <button type="submit" id="submit" v-on:click="submitForm">Submit</button>
+    <!-- 
+      ADD BUTTON TO SET FORM AS DEFAULT OPTIONS - IE POST TO THE SERVER DATABASE
+      REMEMBER TO UNCOMMENT OUT USERSERVE IMPORT BELOW
+    -->
   </div>
 </template>
 
 <script>
-import userService from "@/services/UserService";
+// import userService from "@/services/UserService";
+
+import YelpService from "@/services/YelpService";
 
 export default {
+  name: "feastForm",
   data() {
     return {
+      // need toupdate hte list
       options: [
         {
           type: "Thai",
@@ -239,17 +247,22 @@ export default {
 
   methods: {
     submitForm() {
-      userService.addForm(this.form).then((response) => {
-        if (response.status == 201) {
-          this.$store.commit("SET_USER", response.data.form);
-          this.$router.push("/");
-        } else {
-          this.$router.push("/login")
-        }
-      });
+      for (let i = 0; i < 2; i++){
+        let stringCuisine = this.form.cuisineType[i];
+        YelpService.getSearchResults(stringCuisine, this.form.zipCode, this.computedRadius).then((response) =>{
+        this.$store.commit("SET_LIST", response.data)});
+      }
     },
   },
-};
+  computed: {
+      computedCuisineString(){
+          return this.form.cuisineType[0];
+        },
+      computedRadius(){
+        return this.form.radius*1609;
+      }
+  }
+}
 </script>
 
 <style>

@@ -93,4 +93,12 @@ public class JdbcProfileDao implements ProfileDao {
         }
         return preferences;
     }
+
+    @Override
+    public Profile updateProfile(Profile details, int userId){
+        String sql = "DELETE FROM user_cuisine WHERE user_id = ?";
+        int results = jdbcTemplate.update(sql, userId);
+        Profile newProfile = setProfile(details, userId);
+        return newProfile;
+    }
 }
