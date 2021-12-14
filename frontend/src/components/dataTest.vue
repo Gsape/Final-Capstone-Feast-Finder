@@ -8,7 +8,7 @@
     <h1>Loved Restaurant Ids</h1>
     <h1>Hated Restaurant Ids</h1>
     <h1>List of Restaurants</h1>
-    <div>{{ this.$store.state.searchResults.businesses }}</div>
+    <div >{{ this.$store.state.searchResults }}</div>
     <h1>Profile</h1>
     <h1></h1>
     <h1></h1>
