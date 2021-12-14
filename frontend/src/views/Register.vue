@@ -74,11 +74,11 @@ export default {
           .register(this.user)
           .then((response) => {
             if (response.status == 201) {
-              this.$store.commit("SET_AUTH_TOKEN", response.data.token);
-              this.$store.commit("SET_USER", response.data.user);
+              // this.$store.commit("SET_AUTH_TOKEN", response.data.token);
+              // this.$store.commit("SET_USER", response.data.user);
               this.$router.push({
-                path: "/", 
-                query: { registration: "success" },
+                path: "/login", 
+                // query: { registration: "success" },
               });
             }
           })
