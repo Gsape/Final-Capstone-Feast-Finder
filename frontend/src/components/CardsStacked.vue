@@ -1,3 +1,4 @@
+  <<template>
   <div class="cards">
     <GameCard
       v-for="(card, index) in cards"
