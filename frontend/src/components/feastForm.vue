@@ -31,21 +31,20 @@
 
       <label class="checkbox-form" for="options.type"></label>
       <div class="row">
-        <div
-          class="options col-sm-6"
+        <div id='word-checkbox'
+          class="options col-sm-15"
           v-for="options in options"
           v-bind:key="options.id"
         >
-          <label class="form-check-label">
+          <label>
             {{ options.type }}
           </label>
-          <input
+          <input class='input'
             :id="options.type"
             v-model="form.cuisineType"
             type="checkbox"
             :value="options.type"
           />
-          <div></div>
         </div>
       </div>
     </form>
@@ -73,168 +72,129 @@ export default {
         {
           type: "Thai",
         },
-
         {
           type: "Deli",
         },
-
         {
           type: "Pizza",
         },
-
         {
           type: "Chinese",
         },
-
         {
           type: "Healthy",
         },
-
         {
           type: "BBQ",
         },
-
         {
           type: "Seafood",
         },
-
         {
           type: "Italian",
         },
-
         {
           type: "Ethiopian",
         },
-
         {
           type: "Sushi",
         },
-
         {
           type: "Japanese",
         },
-
         {
           type: "Poke",
         },
-
         {
           type: "Burger",
         },
-
         {
           type: "Hotdogs",
         },
-
         {
           type: "Fried Chicken",
         },
-
         {
           type: "American",
         },
-
         {
           type: "Café",
         },
-
         {
           type: "Coffee",
         },
-
         {
           type: "Tea",
         },
-
         {
           type: "Fast Food",
         },
-            {
+        {
           type: "Burrito",
         },
-
         {
           type: "Boba Tea",
         },
-
         {
           type: "Vietanamese",
         },
-
         {
           type: "Argentinian",
         },
-
         {
           type: "Steak House",
         },
-
         {
           type: "Milkshake",
         },
-
         {
           type: "Bakery",
         },
-
         {
           type: "Bar",
         },
-
         {
           type: "Brewery",
         },
-
         {
           type: "Wine",
         },
           {
           type: "Middle Eastern",
         },
-
         {
           type: "Kosher",
         },
-
         {
           type: "Noodles",
         },
          {
           type: "Tacos",
         },
-
         {
           type: "Soul Food",
         },
-
         {
           type: "Gluten Free",
         },
-
         {
           type: "Vegan",
         },
-
         {
           type: "Vegetarian",
         },
-
         {
           type: "Indian",
         },
-
         {
           type: "Halal",
         },
-
         {
           type: "Korean",
         },
         {
           type: "Buffet",
         },
-        
-        
       ],
 
       form: {
@@ -312,6 +272,7 @@ h1 {
   margin-right: auto;
   margin-bottom: 50px;
   width: 100%;
+  background-color: white;
   /* border: 2px solid black;
     border-radius: 5px; */
 }
@@ -359,17 +320,16 @@ button {
   height: 30px;
 }
 
-#cuisine-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-  grid-auto-rows: auto;
-  grid-gap: 5px;
+.row {
+  box-shadow: 5px 5px 8px #888888;
+  border-radius: 5px;
+  padding: 5px;
 }
 
-@media screen and (min-width: 768px) {  
-    #cusisine-list .collapse {
-            display:block;
-    }  
-}
+
+/* #options.type {
+  
+} */
+
 
 </style>

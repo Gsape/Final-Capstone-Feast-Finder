@@ -127,9 +127,9 @@ form{
   object-fit: contain;
 }
 body {
-  background: linear-gradient(-45deg, #FAF883, #F781AE,#9C3AEC, #23D5AB);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+	background: linear-gradient(-45deg, #faf883, #f781ae,#9c3aec, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
 }
 @keyframes gradient {
   0% {
