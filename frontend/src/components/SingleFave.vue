@@ -1,14 +1,28 @@
 <template>
   <div>
-    <div class="card" v-for="restaurant in $store.state.cleanerResults" :key="restaurant.name">
-      <img :src='restaurant.image_url' alt="">
-        <div class="container">
-          <h4><b>{{ restaurant.name }}</b></h4>
-          <button type="button" v-on:click="addToFaveState(restaurant.id)">Like</button>    
-          <p>{{ restaurant.rating }}</p>
-        </div>
+        
+          <div class="card" v-for="restaurant in $store.state.cleanerResults" :key="restaurant.name">
+            <img :src='restaurant.image_url' alt="">
+            <div class="container">
+              <h4><b>{{ restaurant.name }}</b></h4>
+                <button type="button" v-on:click="addToFaveState(restaurant.id)">Like</button>
+                
+                <p>{{ restaurant.rating }}</p>
+            </div>
+          </div>
+  
+            
     </div>
-  </div>
+    
+    
+    <!-- <ul>
+      <li v-for="list in $store.state.searchResults" :key="list.businesses">
+        <p v-for="restaurant in list.businesses" :key="restaurant.name">
+          {{ restaurant.name }}
+        </p>
+      </li>
+    </ul> -->
+
 </template>
 
 <script lang="ts">

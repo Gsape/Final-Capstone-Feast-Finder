@@ -35,7 +35,8 @@ export default new Vuex.Store({
     responseJSON: {},
     searchResults: [],
     displayResults: [],
-    favorites: []
+    favorites: [], 
+    cleanerResults: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -61,6 +62,11 @@ export default new Vuex.Store({
     SET_LIST(state, data){
       state.searchResults = [];
       state.searchResults.unshift(data);
+      state.searchResults.forEach((element) => {
+        element.businesses.forEach((element) => {
+          state.cleanerResults.unshift(element);
+        })
+      })
     },
     SET_YELP_TOKEN(state, data){
       state.yelpToken = data;

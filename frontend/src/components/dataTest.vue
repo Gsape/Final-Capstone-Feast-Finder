@@ -8,6 +8,8 @@
     <button type="button" v-on:click="getYelpToken">Show Yelp Token</button>
     <p>{{ this.$store.state.yelpToken }}</p>
     <h1>Loved Restaurant Ids</h1>
+    <p>{{ this.$store.state.favorites }}</p>
+    
     <h1>Hated Restaurant Ids</h1>
     <h1>List of Restaurants</h1>
 
@@ -30,6 +32,7 @@
 <script>
 // import yelpService from "../services/YelpService";
 import authService from "../services/AuthService";
+
 
 export default {
   name: "data-test",
@@ -89,8 +92,22 @@ export default {
 
     JSONObject() {
       return this.$store.state.responseJSON;
-    }
+    },
   // },
+  computed: {
+    cardsArray(){
+      let storeResults = this.$store.state.searchResults;
+      let returnedArray = [];
+      const size = storeResults.size;
+      for (let i = 0; i < size; i++){
+        let businessArray = storeResults[i].businesses;
+        businessArray.forEach((element) => {
+          returnedArray.unshift(element);
+        })
+      }
+      return returnedArray;
+    }
+  }
 }
 
 </script>

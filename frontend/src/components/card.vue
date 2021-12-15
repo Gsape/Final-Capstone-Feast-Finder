@@ -1,9 +1,8 @@
 <template>
-  <vue-card-stack :cards="cards" :stack-width="480" :card-width="280">
-  <template v-slot:card="{ card }">
+  <vue-card-stack :cards="cardsArray" :stack-width="480" :card-width="280">
+  <template>
     <div
       style="width: 100%; height: 100%;"
-      :style="{ background: card.background }"
     ><single-card /></div>
   </template>
 
@@ -47,6 +46,20 @@ export default {
       ],
     };
   },
+  computed: {
+    cardsArray(){
+      let storeResults = this.$store.state.searchResults;
+      let returnedArray = [];
+      const size = storeResults.size;
+      for (let i = 0; i < size; i++){
+        let businessArray = storeResults[i].businesses;
+        businessArray.forEach((element) => {
+          returnedArray.unshift(element);
+        })
+      }
+      return returnedArray;
+    }
+  }
 };
 </script>
 

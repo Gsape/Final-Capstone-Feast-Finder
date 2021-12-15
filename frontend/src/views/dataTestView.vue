@@ -2,7 +2,7 @@
 <div>
   <dataTest />
   <div>
-    <div class="cardDisplay">
+    <div class="cardDisplay" v-for="restaurant in $store.state.cleanerResults" :key="restaurant.name">
       <single-card />
     </div>
   </div>
