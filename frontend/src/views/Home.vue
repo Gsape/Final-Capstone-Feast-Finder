@@ -3,7 +3,7 @@
   <header>
     <banner/>
     </header>
-    <h1>Recomended Restaurants</h1>
+    <h1>Recommended Restaurants</h1>
     <single-card />
     <h1>Your Favorite Restaurants</h1>
     <fav-card />
