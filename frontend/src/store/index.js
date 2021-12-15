@@ -35,17 +35,9 @@ export default new Vuex.Store({
     responseJSON: {},
     searchResults: [],
     displayResults: [],
-<<<<<<< HEAD
     favorites: [], 
-    cleanerResults: []
-=======
-    favorites: [],
-<<<<<<< HEAD
->>>>>>> f4cdbffaa8e9ee458a9ce51074af98766f772d75
-=======
+    cleanerResults: [],
     favRestaurants: [],
-
->>>>>>> a66ccecb96f99013b3c58a3f90c91319f5e774cf
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
