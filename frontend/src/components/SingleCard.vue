@@ -1,13 +1,23 @@
 <template>
-  <div class="card">
+  <div>
     <h1>Restaurant Name</h1>
 
     <div v-for="list in $store.state.searchResults" :key="list.businesses">
         
         <div v-for="restaurant in list.businesses" :key="restaurant.name">
+          <div class="card">
+            <img :src='restaurant.image_url' alt="">
+            <div class="container">
+              <h4><b>{{ restaurant.name }}</b></h4>
+                <p>{{ restaurant.rating }}</p>
+            </div>
+          </div>
+
+
+
+            <!-- <img :src='restaurant.image_url' alt="" />
             {{ restaurant.name }}
-            {{ restaurant.rating }}
-            <img :src='restaurant.image_url' alt="" />
+            {{ restaurant.rating }} -->
         </div>    
             
         </div>
@@ -33,15 +43,29 @@ export default Vue.extend({
 
 
 <style scoped>
+
+img {
+    height: 200px;
+    width: auto;
+}
+
 .card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
   border-radius: 10px;
   width: 300px;
   height: 400px;
   margin: 20px;
 }
 
-img {
-    height: 100px;
-    width: auto;
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
 }
 </style>

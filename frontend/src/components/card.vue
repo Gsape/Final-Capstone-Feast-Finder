@@ -1,6 +1,7 @@
 <template>
   <vue-card-stack :cards="cards" :stack-width="480" :card-width="280">
   <template v-slot:card="{ card }">
+    <single-card/>
     <div
       style="width: 100%; height: 100%;"
       :style="{ background: card.background }"
@@ -30,9 +31,11 @@
 
 <script>
 import VueCardStack from "vue-card-stack";
+import SingleCard from './SingleCard.vue';
 export default {
     components: {
     VueCardStack,
+    SingleCard
   },
   data() {
     return {
