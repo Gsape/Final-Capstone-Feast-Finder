@@ -1,11 +1,10 @@
 <template>
   <vue-card-stack :cards="cards" :stack-width="480" :card-width="280">
   <template v-slot:card="{ card }">
-    <single-card/>
     <div
       style="width: 100%; height: 100%;"
       :style="{ background: card.background }"
-    ></div>
+    ><single-card /></div>
   </template>
 
    <template v-slot:nav="{ onNext, onPrevious }">

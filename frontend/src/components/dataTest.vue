@@ -5,6 +5,8 @@
     <!-- <h2>{{ restaurant }}</h2>
     <h2>{{ restaurant.id }}</h2> -->
     <h1>Yelp Token</h1>
+    <button type="button" v-on:click="getYelpToken">Show Yelp Token</button>
+    <p>{{ this.$store.state.yelpToken }}</p>
     <h1>Loved Restaurant Ids</h1>
     <h1>Hated Restaurant Ids</h1>
     <h1>List of Restaurants</h1>
@@ -27,6 +29,7 @@
 
 <script>
 // import yelpService from "../services/YelpService";
+import authService from "../services/AuthService";
 
 export default {
   name: "data-test",
@@ -40,7 +43,11 @@ export default {
 
   //   gR9DTbKCvezQlqvD7_FzPw
 
-  // methods: {
+  methods: {
+    getYelpToken(){
+      authService.yelpKey().then((response) => {
+        this.$store.commit("SET_YELP_TOKEN", response.data)});
+    }
     // getRestaurant() {
     //   yelpService
     //     .getSingleRestaurant(this.$route.params.businessID) // this.$route.params.businessID
@@ -69,7 +76,7 @@ export default {
     //         cuisine: this.restaurant.cuisine
     //
     // },
-  // },
+  },
 
   // created() {
   //   this.getRestaurant();

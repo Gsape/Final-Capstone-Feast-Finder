@@ -2,7 +2,7 @@
 <div>
   <dataTest />
   <div>
-    <div>
+    <div class="cardDisplay">
       <single-card />
     </div>
   </div>
@@ -36,6 +36,10 @@ export default {
 </script>
 
 <style>
-
+.cardDisplay{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 </style>
