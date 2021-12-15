@@ -1,6 +1,7 @@
 <template>
   <div id="login" class="text-center">
     <container class='login-image-container'>
+      <img src="/heart-and-fork.png" class="logo" alt="logo">
     </container>
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
@@ -88,12 +89,17 @@ span {
 
 form{
   box-sizing: border-box;
-  margin: 100px;
+  margin: 5px 200px 20px 200px;
   padding: 50px;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
   border-radius: 10px;
   background-color: rgba(255, 255, 255, .15);
   backdrop-filter: blur(5px);
+}
+
+.logo{
+  height: 300px;
+  width: auto;
 }
 
 #login-image {
