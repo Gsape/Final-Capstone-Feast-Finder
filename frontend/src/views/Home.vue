@@ -12,6 +12,8 @@
    </b-container>    
    <side-bar/>
    <router-link v-bind:to="{ name: 'test' }">LINKKKKKKKKKKKK</router-link>
+      <router-link v-bind:to="{ name: 'singleCard' }">Card</router-link>
+
   </div>
 </template>
 

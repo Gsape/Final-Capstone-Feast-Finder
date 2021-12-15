@@ -1,26 +1,47 @@
 <template>
-    <div class="card">
-        <h1> Restaurant Name </h1>
-        <img src="https://infatuation.s3.amazonaws.com/media/images/guides/the-pittsburgh-guide-the-x-best-places-to-eat-and-drink-in-pittsburgh/SG_DiningRoom2_PhotoCred-StoneSwiess.jpg" />
-        <h3> Address </h3>
-        <h3> Stars </h3>
-        <h3> Cuisine </h3>
+  <div class="card">
+    <h1>Restaurant Name</h1>
+
+    <div v-for="list in $store.state.searchResults" :key="list.businesses">
+        
+        <div v-for="restaurant in list.businesses" :key="restaurant.name">
+            {{ restaurant.name }}
+            {{ restaurant.rating }}
+            <img :src='restaurant.image_url' alt="" />
+        </div>    
+            
+        </div>
     </div>
+    
+    
+    <!-- <ul>
+      <li v-for="list in $store.state.searchResults" :key="list.businesses">
+        <p v-for="restaurant in list.businesses" :key="restaurant.name">
+          {{ restaurant.name }}
+        </p>
+      </li>
+    </ul> -->
+
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from "vue";
 export default Vue.extend({
-    
-})
+});
 </script>
+
+
 
 <style scoped>
 .card {
-    border-radius: 10px;
-    width: 300px;
-    height: 400px;
-    margin: 20px;
+  border-radius: 10px;
+  width: 300px;
+  height: 400px;
+  margin: 20px;
 }
 
+img {
+    height: 100px;
+    width: auto;
+}
 </style>
