@@ -2,16 +2,9 @@
   <div>
     <!-- <h1>Restaurant</h1> -->
     <!-- <h2>{{ restaurant }}</h2> -->
-    <!-- <h2>{{ restaurant }}</h2>
-    <h2>{{ restaurant.id }}</h2> -->
-    <h1>Yelp Token</h1>
-    <button type="button" v-on:click="getYelpToken">Show Yelp Token</button>
-    <p>{{ this.$store.state.yelpToken }}</p>
-    <h1>Loved Restaurant Ids</h1>
-    <p>{{ this.$store.state.favorites }}</p>
-    
-    <h1>Hated Restaurant Ids</h1>
-    <h1>List of Restaurants</h1>
+    <!-- <h2>{{ restaurant }}</h2> -->
+    <!-- <h2>{{ restaurant.id }}</h2>
+    <h2>{{ restaurant.rating }}</h2> -->
 
     <!-- <ul>
       <li v-for="list in $store.state.searchResults" :key="list.businesses">
@@ -85,10 +78,10 @@ export default {
   //   this.getRestaurant();
   // },
 
-  // computed: {
-  //   restaurant() {
-  //     return this.$store.state.restaurant;
-  //   },
+  computed: {
+    restaurant() {
+      return this.$store.state.restaurant;
+    },
 
     JSONObject() {
       return this.$store.state.responseJSON;
@@ -108,6 +101,7 @@ export default {
       return returnedArray;
     }
   }
+}
 }
 
 </script>

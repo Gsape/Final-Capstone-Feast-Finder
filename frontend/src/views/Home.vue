@@ -2,32 +2,33 @@
   <div>
   <header>
     <h1>Feast Finder</h1>
+    <side-bar/>
     </header>
-   <b-container>
+    <single-card />
+   <!-- <b-container>
       <b-row class="vh-100" align-v="center">
         <b-col></b-col>
         <b-col> <card/> </b-col>
         <b-col></b-col>
       </b-row>   
-   </b-container>    
-   <side-bar/>
-   <router-link v-bind:to="{ name: 'test' }">LINKKKKKKKKKKKK</router-link>
-      <router-link v-bind:to="{ name: 'singleCard' }">Card</router-link>
-
+   </b-container>     -->
   </div>
 </template>
 
 <script>
-import Card from '../components/card.vue';
+// import Card from '../components/card.vue';
 import SideBar from '../components/sideBar.vue';
+import SingleCard from '../components/SingleCard.vue';
  
 export default {
-  components: {Card, SideBar},
-  name: "home"
+  components: {SideBar, SingleCard},
+  name: "home",
 };
 </script>
 
 <style scoped>
+
+
 
 header > img {
   max-width: 10%;
@@ -41,5 +42,7 @@ header > h1 {
   margin-top: 5px;
   flex-grow: 2;
   justify-content: flex-start;
+  font-family: "Wabeco";
 }
+
 </style>
