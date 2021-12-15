@@ -36,6 +36,8 @@ export default new Vuex.Store({
     searchResults: [],
     displayResults: [],
     favorites: [],
+    favRestaurants: [],
+
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -65,6 +67,11 @@ export default new Vuex.Store({
 
     ADD_FAVORITE(state, data){
       state.favorites.unshift(data);
+    },
+
+    SET_FAV_RESTAURANTS(state, data) {
+      state.favRestaurants.unshift(data);
     }
+    // set fav restaurant array
   }
 })
