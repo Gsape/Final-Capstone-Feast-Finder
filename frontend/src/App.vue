@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-      
-    </div>
+
     <router-view />
   </div>
 </template>
@@ -17,4 +13,9 @@
   font-size: larger;
 }
 
+@font-face {
+  font-family: "Wabeco";
+  src: local("Webeco"),
+   url(./fonts/WABECO-Regular.ttf) format("truetype");
+}
 </style>
