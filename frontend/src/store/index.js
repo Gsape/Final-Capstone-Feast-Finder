@@ -21,7 +21,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-
+    yelpToken: '',
     restaurant: {
       businessID: '',
       business: '',
@@ -35,9 +35,9 @@ export default new Vuex.Store({
     responseJSON: {},
     searchResults: [],
     displayResults: [],
-    favorites: [],
+    favorites: [], 
+    cleanerResults: [],
     favRestaurants: [],
-
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

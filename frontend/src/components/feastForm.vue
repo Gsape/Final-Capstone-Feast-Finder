@@ -51,17 +51,14 @@
     {{ options.type }}
 
     <button type="submit" id="submit" v-on:click="submitForm">Submit</button>
-    <!-- 
-      ADD BUTTON TO SET FORM AS DEFAULT OPTIONS - IE POST TO THE SERVER DATABASE
-      REMEMBER TO UNCOMMENT OUT USERSERVE IMPORT BELOW
-    -->
+    <button type="button" id="sendToDB" v-on:click="sendToServer">Save as Default Profile</button>
   </div>
 </template>
 
 <script>
-// import userService from "@/services/UserService";
 
 import YelpService from "@/services/YelpService";
+import UserService from '../services/UserService';
 
 export default {
   name: "feastForm",
@@ -218,6 +215,14 @@ export default {
         });
       }
     },
+    sendToServer() {
+      const newForm = {
+        radius: this.form.radius,
+        zipCode: this.form.zipCode,
+        cuisineType: this.form.cuisineType
+      }
+      UserService.addForm(newForm)
+    }
   },
   computed: {
     computedCuisineString() {

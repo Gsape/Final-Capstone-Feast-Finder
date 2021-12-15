@@ -14,8 +14,8 @@ export default {
         return axios.get('/profile')
     },
 
-    addFavorite(ID) {
-        return axios.post('/restaurants/love', ID)
+    addFavorite(data) {
+        return axios.post('/restaurants/love', data)
     },
 
     addHated(ID) {

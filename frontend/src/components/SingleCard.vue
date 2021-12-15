@@ -22,30 +22,28 @@
             
         </div>
     </div>
-    
-    
-    <!-- <ul>
-      <li v-for="list in $store.state.searchResults" :key="list.businesses">
-        <p v-for="restaurant in list.businesses" :key="restaurant.name">
-          {{ restaurant.name }}
-        </p>
-      </li>
-    </ul> -->
-
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import UserService from "../services/UserService";
 import YelpService from '../services/YelpService'
 
 export default Vue.extend({
   methods: {
   addToFaveState(restaurantID){
+      // Local Changes
       this.$store.commit("ADD_FAVORITE", restaurantID);
        YelpService.getSingleRestaurant(restaurantID)
         .then((response) => {
           this.$store.commit("SET_FAV_RESTAURANTS", response)
-        })
+        });
+      // Changes to Database
+      const dto = {
+        yelpId: restaurantID,
+        isShown: false
+      }
+      UserService.addFavorite(dto);
     }
   }
 });
@@ -90,7 +88,6 @@ img {
 #wrapper {
   overflow-x: scroll;
   white-space: nowrap;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 border-radius: 10px
 }
 

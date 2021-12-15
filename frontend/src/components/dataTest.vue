@@ -24,6 +24,8 @@
 
 <script>
 // import yelpService from "../services/YelpService";
+import authService from "../services/AuthService";
+
 
 export default {
   name: "data-test",
@@ -37,7 +39,11 @@ export default {
 
   //   gR9DTbKCvezQlqvD7_FzPw
 
-  // methods: {
+  methods: {
+    getYelpToken(){
+      authService.yelpKey().then((response) => {
+        this.$store.commit("SET_YELP_TOKEN", response.data)});
+    }
     // getRestaurant() {
     //   yelpService
     //     .getSingleRestaurant(this.$route.params.businessID) // this.$route.params.businessID
@@ -66,7 +72,7 @@ export default {
     //         cuisine: this.restaurant.cuisine
     //
     // },
-  // },
+  },
 
   // created() {
   //   this.getRestaurant();
@@ -79,8 +85,22 @@ export default {
 
     JSONObject() {
       return this.$store.state.responseJSON;
-    }
+    },
   // },
+  computed: {
+    cardsArray(){
+      let storeResults = this.$store.state.searchResults;
+      let returnedArray = [];
+      const size = storeResults.size;
+      for (let i = 0; i < size; i++){
+        let businessArray = storeResults[i].businesses;
+        businessArray.forEach((element) => {
+          returnedArray.unshift(element);
+        })
+      }
+      return returnedArray;
+    }
+  }
 }
 }
 
