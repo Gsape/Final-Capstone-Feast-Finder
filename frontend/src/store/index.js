@@ -34,7 +34,8 @@ export default new Vuex.Store({
     },
     responseJSON: {},
     searchResults: [],
-    displayResults: []
+    displayResults: [],
+    favorites: [],
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -60,6 +61,10 @@ export default new Vuex.Store({
     SET_LIST(state, data){
       state.searchResults = []
       state.searchResults.unshift(data);
+    },
+
+    ADD_FAVORITE(state, data){
+      state.favorites.unshift(data);
     }
   }
 })
