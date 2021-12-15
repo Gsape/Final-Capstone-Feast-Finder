@@ -72,7 +72,9 @@ public class JdbcProfileDao implements ProfileDao {
 
     @Override
     public Profile setProfile(Profile details, int userId){
-        String sql = "UPDATE users SET radius = ?, zip_code = ? WHERE user_id = ? RETURNING username";
+        String sql = "DELETE FROM user_cuisine WHERE user_id = ?";
+        int results = jdbcTemplate.update(sql, userId);
+        sql = "UPDATE users SET radius = ?, zip_code = ? WHERE user_id = ? RETURNING username";
         String returnedUsername = jdbcTemplate.queryForObject(sql, String.class, details.getRadius(), details.getZipCode(), userId);
         String[] stringList = details.getCuisineType().toArray(new String[0]);
         sql = "INSERT INTO user_cuisine (user_id, cuisine) VALUES (?, ?)";

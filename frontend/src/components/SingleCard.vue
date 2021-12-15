@@ -26,16 +26,24 @@
 
 <script lang="ts">
 import Vue from "vue";
+import UserService from "../services/UserService";
 import YelpService from '../services/YelpService'
 
 export default Vue.extend({
   methods: {
   addToFaveState(restaurantID){
+      // Local Changes
       this.$store.commit("ADD_FAVORITE", restaurantID);
        YelpService.getSingleRestaurant(restaurantID)
         .then((response) => {
           this.$store.commit("SET_FAV_RESTAURANTS", response)
-        })
+        });
+      // Changes to Database
+      const dto = {
+        yelpId: restaurantID,
+        isShown: false
+      }
+      UserService.addFavorite(dto);
     }
   }
 });
