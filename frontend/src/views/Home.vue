@@ -1,28 +1,23 @@
 <template>
   <div>
   <header>
-    <h1>Feast Finder</h1>
-    <side-bar/>
+    <banner/>
     </header>
+    <h1>Recomended Restaurants</h1>
     <single-card />
-   <!-- <b-container>
-      <b-row class="vh-100" align-v="center">
-        <b-col></b-col>
-        <b-col> <card/> </b-col>
-        <b-col></b-col>
-      </b-row>   
-   </b-container>     -->
+    <h1>Your Favorite Restaurants</h1>
+    <fav-card />
   </div>
 </template>
 
 <script>
-// import Card from '../components/card.vue';
-import SideBar from '../components/sideBar.vue';
+import Banner from '../components/banner.vue';
+import FavCard from '../components/favCard.vue';
 import SingleCard from '../components/SingleCard.vue';
  
 export default {
-  components: {SideBar, SingleCard},
-  name: "home",
+  components: {Banner, SingleCard, FavCard},
+  name: "home"
 };
 </script>
 

@@ -40,7 +40,12 @@ export default new Vuex.Store({
     cleanerResults: []
 =======
     favorites: [],
+<<<<<<< HEAD
 >>>>>>> f4cdbffaa8e9ee458a9ce51074af98766f772d75
+=======
+    favRestaurants: [],
+
+>>>>>>> a66ccecb96f99013b3c58a3f90c91319f5e774cf
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -70,6 +75,11 @@ export default new Vuex.Store({
 
     ADD_FAVORITE(state, data){
       state.favorites.unshift(data);
+    },
+
+    SET_FAV_RESTAURANTS(state, data) {
+      state.favRestaurants.unshift(data);
     }
+    // set fav restaurant array
   }
 })
