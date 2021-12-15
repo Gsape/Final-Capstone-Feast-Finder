@@ -1,16 +1,18 @@
 <template>
-  <div>
-    <div v-for="list in $store.state.searchResults" :key="list.businesses" class='d-flex flex-nowrap' id='wrapper'>
-        
-        <div v-for="restaurant in list.businesses" :key="restaurant.name" class='space'>
+  <div> 
+        <div id='wrapper' class='d-flex flex-nowrap'>
+      
+        <div v-for="restaurant in $store.state.favRestaurants" :key="restaurant.data.name">
           <div class="card">
-            <img :src='restaurant.image_url' alt="">
+            <img :src='restaurant.data.image_url' alt="">
             <div class="container">
-              <h4><b>{{ restaurant.name }}</b></h4>
-                <p>{{ restaurant.location.address1 }}</p>
-                <p>{{ restaurant.display_phone }}</p>
-                <button type="button" v-on:click="addToFaveState(restaurant.id)" class="btn btn-primary btn-sm" id='like'>Like</button>
-            </div>
+              <h4><b>{{ restaurant.data.name }}</b></h4>
+                <p>{{ restaurant.data.location.address1 }}</p>
+                <p>{{ restaurant.data.display_phone }}</p>
+                <!-- <button type="button" v-on:click="addToFaveState(restaurant.id)" class="btn btn-primary btn-sm" id='like'>Like</button> -->
+          
+          </div>
+
           </div>
 
 
@@ -35,18 +37,23 @@
 </template>
 
 <script lang="ts">
+
 import Vue from "vue";
-import YelpService from '../services/YelpService'
+import YelpService from "../services/YelpService";
+
 
 export default Vue.extend({
   methods: {
   addToFaveState(restaurantID){
       this.$store.commit("ADD_FAVORITE", restaurantID);
-       YelpService.getSingleRestaurant(restaurantID)
+      YelpService.getSingleRestaurant(restaurantID)
         .then((response) => {
           this.$store.commit("SET_FAV_RESTAURANTS", response)
         })
     }
+
+  
+
   }
 });
 </script>
