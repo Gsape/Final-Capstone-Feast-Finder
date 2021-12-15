@@ -28,14 +28,14 @@
       </select>
 
       <h2>Feasting Zone</h2>
-    <ul id="cuisine-list" class="list-group list-group-horizontal" for="options.type">
-      <li class="list-group-item" v-for="options in options" v-bind:key="options.id">{{options.type}}
-        <input class="form-check-input me-1" type="checkbox" v-model="form.cuisineType" :value="options.type" />
-      </li>     
-    </ul>
-<!-- 
-      <label class="checkbox-form" for="options.type">
-        <div class="options" v-for="options in options" v-bind:key="options.id">
+
+      <label class="checkbox-form" for="options.type"></label>
+      <div class="row">
+        <div
+          class="options col-sm-6"
+          v-for="options in options"
+          v-bind:key="options.id"
+        >
           <label class="form-check-label">
             {{ options.type }}
           </label>
@@ -45,9 +45,9 @@
             type="checkbox"
             :value="options.type"
           />
-          <div>
+          <div></div>
         </div>
-      </label> -->
+      </div>
     </form>
     {{ options.type }}
 
@@ -247,22 +247,27 @@ export default {
 
   methods: {
     submitForm() {
-      for (let i = 0; i < 2; i++){
+      for (let i = 0; i < 2; i++) {
         let stringCuisine = this.form.cuisineType[i];
-        YelpService.getSearchResults(stringCuisine, this.form.zipCode, this.computedRadius).then((response) =>{
-        this.$store.commit("SET_LIST", response.data)});
+        YelpService.getSearchResults(
+          stringCuisine,
+          this.form.zipCode,
+          this.computedRadius
+        ).then((response) => {
+          this.$store.commit("SET_LIST", response.data);
+        });
       }
     },
   },
   computed: {
-      computedCuisineString(){
-          return this.form.cuisineType[0];
-        },
-      computedRadius(){
-        return this.form.radius*1609;
-      }
-  }
-}
+    computedCuisineString() {
+      return this.form.cuisineType[0];
+    },
+    computedRadius() {
+      return this.form.radius * 1609;
+    },
+  },
+};
 </script>
 
 <style>
@@ -281,9 +286,9 @@ export default {
   width: 25%;
 }
 
-.options{
+.options {
   display: flex;
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 h1 {
@@ -293,7 +298,7 @@ h1 {
 
 .form {
   display: block;
-  width:100%;
+  width: 100%;
   max-width: 50rem;
   text-align: center;
   margin-left: auto;
@@ -314,8 +319,8 @@ h1 {
 button {
   border: 1;
   border-radius: 20px;
-  background:#0d6efd;
-  
+  background: #0d6efd;
+
   font-family: serif;
   font-size: 100%;
   line-height: 1.2;
@@ -329,7 +334,7 @@ button {
   display: flex;
   font-family: serif;
   font-size: 100%;
-  width:100%;
+  width: 100%;
 }
 
 .zipcode {
