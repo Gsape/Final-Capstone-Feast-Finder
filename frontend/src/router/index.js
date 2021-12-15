@@ -8,6 +8,7 @@ import store from '../store/index'
 import feastForm from '../views/feastForm.vue'
 import TestView from '../views/TestView.vue'
 import dataTest from '../views/dataTestView.vue'
+import singleCard from '../views/singleCard.vue'
 
 Vue.use(Router)
 
@@ -74,6 +75,12 @@ const router = new Router({
       path: "/test",
       name: "test",
       component: dataTest
+    },
+
+    {
+      path: "/singleCard",
+      name: "singleCard",
+      component: singleCard
     },
     
   ]

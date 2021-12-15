@@ -8,8 +8,16 @@
     <h1>Loved Restaurant Ids</h1>
     <h1>Hated Restaurant Ids</h1>
     <h1>List of Restaurants</h1>
-    <div >{{ this.$store.state.searchResults }}</div>
-    <h1>Profile</h1>
+
+    <!-- <ul>
+      <li v-for="list in $store.state.searchResults" :key="list.businesses">
+          <p v-for="restaurant in list.businesses" :key="restaurant.name">
+              {{ restaurant.name }}
+          </p>
+      </li>
+    </ul> -->
+
+    <!-- <h1>Profile</h1> -->
     <h1></h1>
     <h1></h1>
     <h1></h1>
@@ -67,16 +75,15 @@ export default {
   //   this.getRestaurant();
   // },
 
-  computed: {
-    restaurant() {
-      return this.$store.state.restaurant;
-    },
+  // computed: {
+  //   restaurant() {
+  //     return this.$store.state.restaurant;
+  //   },
 
     JSONObject() {
       return this.$store.state.responseJSON;
     }
-  },
+  // },
+}
 
-  
-};
 </script>
