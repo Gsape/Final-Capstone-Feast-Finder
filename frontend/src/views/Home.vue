@@ -1,7 +1,7 @@
 <template>
   <div>
   <header>
-    <h1>Feast Finder</h1>
+    <banner/>
     </header>
    <b-container>
       <b-row class="vh-100" align-v="center">
@@ -10,7 +10,6 @@
         <b-col></b-col>
       </b-row>   
    </b-container>    
-   <side-bar/>
    <router-link v-bind:to="{ name: 'test' }">LINKKKKKKKKKKKK</router-link>
       <router-link v-bind:to="{ name: 'singleCard' }">Card</router-link>
 
@@ -18,11 +17,11 @@
 </template>
 
 <script>
+import Banner from '../components/banner.vue';
 import Card from '../components/card.vue';
-
-
+ 
 export default {
-  components: {Card},
+  components: {Card, Banner},
   name: "home"
 };
 </script>
@@ -43,5 +42,6 @@ header > h1 {
   margin-top: 5px;
   flex-grow: 2;
   justify-content: flex-start;
+  font-family: "Wabeco";
 }
 </style>

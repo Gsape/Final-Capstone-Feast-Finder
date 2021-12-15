@@ -58,7 +58,7 @@ export default new Vuex.Store({
       state.restaurant = data;
     },
     SET_LIST(state, data){
-      state.searchResults.push(data);
+      state.searchResults.unshift(data);
     }
   }
 })

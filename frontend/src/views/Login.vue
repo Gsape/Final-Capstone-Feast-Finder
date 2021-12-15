@@ -1,6 +1,7 @@
 <template>
   <div id="login" class="text-center">
     <container class='login-image-container'>
+      <img src="/heart-and-fork.png" class="logo" alt="logo">
     </container>
     <form class="border border-light p-5" @submit.prevent="login">
       <h1 id="welcome-message" class="h4 mb-4 text-center">Welcome to Feast Finder</h1>
@@ -102,13 +103,19 @@ span {
 form{
   font-family: 'Old Standard TT', serif;
   box-sizing: border-box;
-  margin: auto;
-  padding: auto;
-  width: 50rem;
+  margin: 5px 200px 20px 200px;
+  padding: 50px;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
   border-radius: 10px;
   backdrop-filter: blur(5px);
   text-align: center;
 }
+
+.logo{
+  height: 300px;
+  width: auto;
+}
+
 #login-image {
   position: absolute;
   width: 100%;
