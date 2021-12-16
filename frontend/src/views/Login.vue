@@ -73,11 +73,7 @@ export default {
           }
         })
         .catch(error => {
-<<<<<<< HEAD
-          const response = error.response;
-=======
           const response = error.response
->>>>>>> 4dc0913229b80aa9da387e9bc111eebfc06707d0
           if (response.status === 401) {
             this.invalidCredentials = true;
           }
