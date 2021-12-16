@@ -1,5 +1,5 @@
 <template>
-  <div class="form">
+  <div class="form" >
     <form @submit.prevent="submitForm" method="post" class="q-form">
       <label>
         <h2>Feast Finder Form</h2>
@@ -333,7 +333,6 @@ button {
   border-radius: 5px;
   padding: 5px;
 }
-
 
 /* #options.type {
   

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-button v-b-toggle.sidebar-no-header>Feast Form</b-button>
+    <b-button v-b-toggle.sidebar-no-header id="THEbutton">Feast Form</b-button>
     <b-sidebar id="sidebar-no-header" aria-labelledby="sidebar-no-header-title" no-header shadow>
       <template #default="{ hide }">
         <div class="p-3">
@@ -48,6 +48,15 @@ export default {
 .close {
   margin-bottom: 10px;
   
+}
+
+#THEbutton{
+  margin: 20px;
+  background-color: #6046ED;
+  box-shadow: 0px 4px 8px 0px #F887D6;
+  width: 200px;
+  height: 60px;
+
 }
 
 </style>

@@ -7,7 +7,7 @@
       <h1>Welcome to Feast Form!</h1>
       <p>
         <ul>This is your home page.</ul>
-        <ul>Right now, this page is as empty as your tummy.</ul>
+        <ul>Right now, this page is as empty as your tummy :(</ul>
         <ul>To fill both, click the Feast Form button to select any of the foods you might be interested in eating today.</ul>
         <ul>When you submit, you'll have a feast before you!</ul>
         <ul>Hover over a card to see more details about that restaurant.</ul>

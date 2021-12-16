@@ -1,6 +1,6 @@
 <template>
   <div> 
-        <div id='wrapper' class='d-flex flex-nowrap'>
+        <div id='wrapper' class='d-flex flex-nowrap scrollbar scrollbar-morpheus-den'>
       
         <div v-for="restaurant in $store.state.favRestaurants" :key="restaurant.data.name">
           <div>
@@ -115,6 +115,25 @@ border-radius: 10px
    margin: auto
 }
 
+.scrollbar-morpheus-den::-webkit-scrollbar-track {
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: transparent;
+border-radius: 10px; }
+
+.scrollbar-morpheus-den::-webkit-scrollbar {
+width: 12px;
+background-color: transparent; }
+
+.scrollbar-morpheus-den::-webkit-scrollbar-thumb {
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-image: -webkit-gradient(linear, left bottom, left top, from(#30cfd0), to(#330867));
+background-image: -webkit-linear-gradient(left, #30cfd0 0%, #330867 100%);
+background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%); }
+
+.scrollbar-morpheus-den {
+scrollbar-color: #330867 #F5F5F5;
+}
 
 
 
