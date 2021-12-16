@@ -1,9 +1,8 @@
 <template>
   <div class="form" >
     <form @submit.prevent="submitForm" method="post" class="q-form">
-      <label>
-        <h2>Feast Finder Form</h2>
-        <label for="zipcode" class="zipcode">Zipcode</label>
+      <h2>Feast Finder Form</h2>
+      <label for="zipcode" class="zipcode">Zipcode</label>
         <input
           type="text"
           id="zipcode"
@@ -16,7 +15,6 @@
           minlength="5"
           v-model="form.zipCode"
         />
-      </label>
 
       <label for="radius" class="radius">Radius</label>
       <select name="radius" id="radius" v-model="form.radius">
@@ -27,7 +25,7 @@
         <!-- <option value="25">25</option> -->
       </select>
 
-      <h2>Feasting Zone</h2>
+      <h2 id="zone">Feasting Zone</h2>
 
       <label class="checkbox-form" for="options.type"></label>
       <div class="row">
@@ -47,11 +45,12 @@
           />
         </div>
       </div>
-    </form>
-    {{ options.type }}
+    
+    <!-- {{ options.type }} -->
 
-    <button type="submit" id="submit" v-on:click="submitForm">Submit</button>
-    <button type="button" id="sendToDB" v-on:click="sendToServer">Save as Default Profile</button>
+    <button class="doWhatIWant" type="submit" id="submit" v-on:click="submitForm">Submit</button>
+    <!-- <button type="button" id="sendToDB" v-on:click="sendToServer">Save as Default Profile</button> -->
+  </form>
   </div>
 </template>
 
@@ -271,33 +270,28 @@ h1 {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
 }
 
 .q-form {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
   width: 100%;
-  background-color: white;
+  background-color: rgba(255,255,255,0.5);
   /* border: 2px solid black;
     border-radius: 5px; */
 }
 
-button {
-  border: 1;
-  border-radius: 20px;
-  background: #0d6efd;
-
-  font-family: serif;
-  font-size: 100%;
-  line-height: 1.2;
-  white-space: nowrap;
-  text-decoration: none;
-  padding: 1rem 2rem;
-  margin: 0.25rem;
+.doWhatIWant {
+  border-radius: 10px;
+  background-color: #6046ED;
+  box-shadow: 0px 4px 8px 0px #F887D6;
+  padding: 10px;
+  margin-top: 15px;
   cursor: pointer;
+  width: 100%;
 }
 .form-check-label {
   display: flex;
@@ -311,6 +305,7 @@ button {
   display: block;
   padding: 10px;
 }
+
 #zipcode {
   border-radius: 10px;
   width: 200px;
@@ -332,6 +327,11 @@ button {
   box-shadow: 5px 5px 8px #888888;
   border-radius: 5px;
   padding: 5px;
+}
+
+#zone {
+  margin-top: 30px;
+  margin-bottom: -10px;
 }
 
 /* #options.type {

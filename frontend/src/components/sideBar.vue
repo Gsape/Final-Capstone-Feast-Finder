@@ -5,10 +5,10 @@
       <template #default="{ hide }">
         <div class="p-3">
 
-          <h4 id="sidebar-no-header-title">FEAST FINDER</h4>
+          <!-- <h4 id="sidebar-no-header-title">FEAST FINDER</h4>
           <p>
             Welcome to Feast Finder!!! Let us help you feed the beast!!!
-          </p>
+          </p> -->
            <!-- <b-img src="PigFeast.png" fluid thumbnail></b-img>  -->
           <nav class="mb-3">
             <b-nav vertical>
@@ -18,7 +18,7 @@
              <div id="sideBarFeastForm"> <feast-form/></div>
             <!-- <b-nav-item href="/logout" @click="hide">Log Out</b-nav-item> -->
             </b-nav>
-                        <b-button variant="primary" block @click="hide" class='close'>Close Sidebar</b-button>
+          <b-button variant="primary" block @click="hide" class="close">Close Sidebar</b-button>
 
           </nav>
         </div>
@@ -41,13 +41,14 @@ export default {
 <style scoped>
 #sideBarFeastForm{
     width:100%;
-    background-color: lightgray;
     border-radius: 5px;
 }
 
 .close {
   margin-bottom: 10px;
-  
+  margin: 20px;
+  background-color: #6046ED;
+  box-shadow: 0px 4px 8px 0px #F887D6;
 }
 
 #THEbutton{
@@ -56,7 +57,10 @@ export default {
   box-shadow: 0px 4px 8px 0px #F887D6;
   width: 200px;
   height: 60px;
+}
 
+.p-3{
+  background: linear-gradient(45deg, #faf883, #f781ae,#9c3aec, #23d5ab);
 }
 
 </style>

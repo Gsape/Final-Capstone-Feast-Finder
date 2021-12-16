@@ -14,12 +14,12 @@
         <ul>Click the "Like button" to save the restaurant as a favorite in your profile.</ul>
       </p>
     </div>
-    <div v-else>
+    <div v-else class="GoEat">
       <h1>Recommended Restaurants</h1>
         <!-- <router-link :to="{ name: 'restaurant-details', params: { id: restaurant.id }}" v-for="r in $store.state.restaurant" v-bind:key="r.id"> -->
           <single-card />
         <!-- </router-link> -->
-      <h1>Your Favorite Restaurants</h1>
+      <h1 class="faveHeader">Your Favorite Restaurants</h1>
       <fav-card />
     </div>
   </div>
@@ -64,6 +64,15 @@ header > h1 {
   flex-grow: 2;
   justify-content: flex-start;
   font-family: "Wabeco";
+}
+
+.GoEat{
+  margin-left: 15px;
+  margin-top: -40px;
+}
+
+.faveHeader{
+  padding-top: 20px;
 }
 
 </style>
