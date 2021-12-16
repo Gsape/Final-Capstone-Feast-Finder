@@ -3,15 +3,15 @@
         <div id='wrapper' class='d-flex flex-nowrap'>
       
         <div v-for="restaurant in $store.state.favRestaurants" :key="restaurant.data.name">
-          <div>
+          <div class="fav-card">
             <img :src='restaurant.data.image_url' alt="">
-            <div class="container">
-              <h4><b>{{ restaurant.data.name }}</b></h4>
-                <p>{{ restaurant.data.location.address1 }}</p>
-                <p>{{ restaurant.data.display_phone }}</p>
-          
-          </div>
-
+            <div>
+              <div class="container">
+                <h4><b>{{ restaurant.data.name }}</b></h4>
+                  <p>{{ restaurant.data.location.address1 }}</p>
+                  <p>{{ restaurant.data.display_phone }}</p>
+              </div>
+            </div>
           </div>
         </div>    
             
@@ -60,7 +60,7 @@ img {
     border-radius: 10px;
 }
 
-.card {
+.fav-card {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
@@ -68,11 +68,11 @@ img {
   width: 300px;
   height: 400px;
   margin: 20px;
-  display: flex;
-  background-color: light;
+  background-color: white;
   border: 1px solid #f1f1f1;
   perspective: 1000px;
-  /* justify-content: center; */
+  
+  
 
 }
 
