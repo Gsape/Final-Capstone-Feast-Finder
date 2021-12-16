@@ -78,6 +78,8 @@ img {
   width: 300px;
   height: 400px;
   margin: 20px;
+  background-color: light;
+  border: 1px solid #f1f1f1;
 }
 
 /* On mouse-over, add a deeper shadow */
