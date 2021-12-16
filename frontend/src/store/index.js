@@ -21,7 +21,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-
+    yelpToken: '',
     restaurant: {
       businessID: '',
       business: '',
@@ -35,7 +35,9 @@ export default new Vuex.Store({
     responseJSON: {},
     searchResults: [],
     displayResults: [],
-    favorites: [],
+    favorites: [], 
+    cleanerResults: [],
+    favRestaurants: [],
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -65,6 +67,11 @@ export default new Vuex.Store({
 
     ADD_FAVORITE(state, data){
       state.favorites.unshift(data);
+    },
+
+    SET_FAV_RESTAURANTS(state, data) {
+      state.favRestaurants.unshift(data);
     }
+    // set fav restaurant array
   }
 })
