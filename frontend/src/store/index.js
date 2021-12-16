@@ -61,7 +61,6 @@ export default new Vuex.Store({
       state.restaurant = data;
     },
     SET_LIST(state, data){
-      state.searchResults = []
       state.searchResults.unshift(data);
     },
     ADD_FAVORITE(state, data){
