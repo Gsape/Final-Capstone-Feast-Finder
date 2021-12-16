@@ -3,38 +3,24 @@
         <div id='wrapper' class='d-flex flex-nowrap'>
       
         <div v-for="restaurant in $store.state.favRestaurants" :key="restaurant.data.name">
-          <div class="card">
+          <div>
             <img :src='restaurant.data.image_url' alt="">
             <div class="container">
               <h4><b>{{ restaurant.data.name }}</b></h4>
                 <p>{{ restaurant.data.location.address1 }}</p>
                 <p>{{ restaurant.data.display_phone }}</p>
-                <!-- <button type="button" v-on:click="addToFaveState(restaurant.id)" class="btn btn-primary btn-sm" id='like'>Like</button> -->
           
           </div>
 
           </div>
-
-
-
-            <!-- <img :src='restaurant.image_url' alt="" />
-            {{ restaurant.name }}
-            {{ restaurant.rating }} -->
         </div>    
             
         </div>
     </div>
-    
-    
-    <!-- <ul>
-      <li v-for="list in $store.state.searchResults" :key="list.businesses">
-        <p v-for="restaurant in list.businesses" :key="restaurant.name">
-          {{ restaurant.name }}
-        </p>
-      </li>
-    </ul> -->
 
 </template>
+
+
 
 <script lang="ts">
 

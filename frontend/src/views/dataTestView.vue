@@ -2,9 +2,9 @@
 <div>
   <dataTest />
   <div>
-    <div class="cardDisplay" v-for="restaurant in $store.state.cleanerResults" :key="restaurant.name">
+    <!-- <div class="cardDisplay" v-for="restaurant in $store.state.cleanerResults" :key="restaurant.name">
       <single-card />
-    </div>
+    </div> -->
   </div>
   
 </div>
@@ -14,7 +14,6 @@
 
 <script>
 import dataTest from '../components/dataTest.vue'
-import SingleCard from '../components/SingleCard.vue'
 // import authService from '../services/AuthService';
 // import userService from '../services/UserService';
 // import yelpService from '../services/YelpService';
@@ -27,9 +26,7 @@ import SingleCard from '../components/SingleCard.vue'
 
 export default {
   components: {
-    dataTest,
-    
-    SingleCard
+    dataTest
   }
   
 }
