@@ -204,7 +204,10 @@ export default {
 
   methods: {
     submitForm() {
-      for (let i = 0; i < 2; i++) {
+      this.$store.commit("SET_LIST", []);
+      const size = this.form.cuisineType.length;
+      console.log(size);
+      for (let i = 0; i < size; i++) {
         let stringCuisine = this.form.cuisineType[i];
         YelpService.getSearchResults(
           stringCuisine,
