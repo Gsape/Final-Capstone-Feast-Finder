@@ -36,8 +36,9 @@ export default new Vuex.Store({
     searchResults: [],
     displayResults: [],
     favorites: [], 
-    cleanerResults: [],
+    cleanerResults: [], 
     favRestaurants: [],
+    profile: {}
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -56,7 +57,6 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-
     SET_RESTAURANT(state, data) {
       state.restaurant = data;
     },
@@ -64,13 +64,22 @@ export default new Vuex.Store({
       state.searchResults = []
       state.searchResults.unshift(data);
     },
-
     ADD_FAVORITE(state, data){
       state.favorites.unshift(data);
     },
-
     SET_FAV_RESTAURANTS(state, data) {
       state.favRestaurants.unshift(data);
+    },
+    SET_CLEANER_RESTAURANTS(state, data){
+      state.cleanerResults = data;
+    },
+    SET_PROFILE(state, data){
+      state.profile = data;
+    },
+    REMOVE_RESTAURANT(state, data){
+      let tempUpdate = state.cleanerResults.filter(restaurant => restaurant.id != data
+      );
+      state.cleanerResults = tempUpdate;
     }
     // set fav restaurant array
   }
