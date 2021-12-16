@@ -1,7 +1,7 @@
 <template>
   <div class="form" >
     <form @submit.prevent="submitForm" method="post" class="q-form">
-      <h2>Feast Finder Form</h2>
+      <h2 class="formTop">Feast Finder Form</h2>
       <label for="zipcode" class="zipcode">Zipcode</label>
         <input
           type="text"
@@ -27,6 +27,7 @@
 
       <h2 id="zone">Feasting Zone</h2>
 
+      <container id="setCheckScroll">
       <label class="checkbox-form" for="options.type"></label>
       <div class="row">
         <div id='word-checkbox'
@@ -45,6 +46,7 @@
           />
         </div>
       </div>
+      </container>
     
     <!-- {{ options.type }} -->
 
@@ -238,10 +240,9 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@700&display=swap');
 
 * {
-    font-family: 'Old Standard TT', serif;
+    font-family: "OpenSans";
     
 }
 
@@ -270,18 +271,15 @@ h1 {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  /* margin-bottom: 50px; */
 }
 
 .q-form {
-  display: block;
+  display: flex;
+  flex-direction: column;
   margin-left: auto;
   margin-right: auto;
-  /* margin-bottom: 50px; */
   width: 100%;
   background-color: rgba(255,255,255,0.5);
-  /* border: 2px solid black;
-    border-radius: 5px; */
 }
 
 .doWhatIWant {
@@ -330,13 +328,13 @@ h1 {
 }
 
 #zone {
-  margin-top: 30px;
-  margin-bottom: -10px;
+  margin-top: 25px;
 }
 
-/* #options.type {
-  
-} */
-
+.setCheckScroll {
+  height: 200px;
+  overflow:hidden; 
+  overflow-y:scroll;
+}
 
 </style>

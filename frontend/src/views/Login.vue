@@ -72,21 +72,18 @@ export default {
 };
 </script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@700&display=swap');
 
 #welcome-message {
-  font-family: 'Old Standard TT', serif;
   font-size: 35px;
+  font-family: "OpenSans";
 }
 
 
 #please-sign-in {
-  font-family: 'Old Standard TT', serif;
   font-size: 25px;
 }
 
 span {
-  font-family: 'Old Standard TT', serif;
   font-weight: bold;
   display: block;
   text-align: center;
@@ -95,7 +92,6 @@ span {
   text-align: center;
   color: #000000;
   font-size: 20px;
-  font-family: 'Old Standard TT', serif;
   display: block;
   text-align: center;
   padding: 10px;
@@ -103,13 +99,11 @@ span {
 #Sign_in{
   border-radius: 10px 10px;
   background-color: #7baee9;
-  font-family: 'Old Standard TT', serif;
   text-align: center;
   margin: auto;
   display: flex;
 }
 form{
-  font-family: 'Old Standard TT', serif;
   box-sizing: border-box;
   margin: 5px 200px 20px 200px;
   padding: 50px;
@@ -138,6 +132,7 @@ body {
 	background: linear-gradient(-45deg, #faf883, #f781ae,#9c3aec, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
+  font-family: "OpenSans";
 }
 @keyframes gradient {
   0% {

@@ -14,8 +14,11 @@
 }
 
 @font-face {
-  font-family: "Wabeco";
+  /* font-family: "Wabeco";
   src: local("Webeco"),
-   url(./fonts/WABECO-Regular.ttf) format("truetype");
+   url(./fonts/WABECO-Regular.ttf) format("truetype"); */
+  font-family: "OpenSans";
+  src: local("OpenSans"),
+  url(./fonts/OpenSans-VariableFont_wdth,wght.ttf) format("truetype");
 }
 </style>

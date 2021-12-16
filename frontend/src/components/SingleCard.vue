@@ -88,9 +88,9 @@ export default Vue.extend({
 });
 </script>
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Vidaloka&display=swap");
+
 * {
-  font-family: "Vidaloka", serif;
+  font-family: "OpenSans";
 }
 img {
   height: 250px;

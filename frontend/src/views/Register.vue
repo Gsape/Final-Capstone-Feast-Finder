@@ -105,11 +105,10 @@ export default {
 
 
 * {
-  font-family: 'Old Standard TT', serif;
+  font-family: "OpenSans";
 }
 
 .form-register {
-  font-family: 'Old Standard TT', serif;
   display: inline-block;
   box-sizing: border-box;
   margin: auto;
@@ -122,7 +121,6 @@ export default {
 }
 
 .content {
-  font-family: 'Old Standard TT', serif;
   background-color: white;
   height: 550px;
   width: 400px;
@@ -132,7 +130,6 @@ export default {
 }
 
 .title {
-  font-family: 'Old Standard TT', serif;
   font-size: 50px;
   margin-bottom: 50px;
   padding: 3px 0px 3px 3px;
@@ -140,7 +137,6 @@ export default {
 }
 
 .form-control {
-  font-family: 'Old Standard TT', serif;
   position: relative;
   height: 45px;
   width: 90%;
@@ -156,7 +152,6 @@ export default {
 }
 
 .sr-only {
-  font-family: 'Old Standard TT', serif;
   display: inline;
   text-align: end;
   margin-bottom: 18px;
@@ -164,12 +159,10 @@ export default {
 }
 
 .input-fields {
-  font-family: 'Old Standard TT', serif;
   margin-top: 50px;
 }
 
 #username {
-  font-family: 'Old Standard TT', serif;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -180,7 +173,6 @@ export default {
 }
 
 .submit {
-  font-family: 'Old Standard TT', serif;
   position: relative;
   padding: 15px 60px;
   border: none;
@@ -207,7 +199,6 @@ export default {
 }
 
 .existing {
-  font-family: 'Old Standard TT', serif;
   margin-top: 40px;
   font-size: 25px;
   color: black;

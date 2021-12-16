@@ -57,6 +57,7 @@ export default {
   box-shadow: 0px 4px 8px 0px #F887D6;
   width: 200px;
   height: 60px;
+  font-size: 25px;
 }
 
 .p-3{
