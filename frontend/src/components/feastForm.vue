@@ -239,8 +239,11 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@700&display=swap');
+
 * {
-  font-family: sa;
+    font-family: 'Old Standard TT', serif;
+    
 }
 
 #logo {
@@ -258,6 +261,7 @@ export default {
 
 h1 {
   text-align: center;
+  font-size: 55px;
 }
 
 .form {
