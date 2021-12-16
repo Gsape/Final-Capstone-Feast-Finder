@@ -4,7 +4,9 @@
     <banner/>
     </header>
     <h1>Recommended Restaurants</h1>
-    <single-card />
+      <!-- <router-link :to="{ name: 'restaurant-details', params: { id: restaurant.id }}" v-for="r in $store.state.restaurant" v-bind:key="r.id"> -->
+        <single-card />
+      <!-- </router-link> -->
     <h1>Your Favorite Restaurants</h1>
     <fav-card />
   </div>
@@ -17,7 +19,8 @@ import SingleCard from '../components/SingleCard.vue';
  
 export default {
   components: {Banner, SingleCard, FavCard},
-  name: "home"
+  name: "home",
+
 };
 </script>
 

@@ -72,8 +72,8 @@ const router = new Router({
     },
 
     {
-      path: "/test",
-      name: "test",
+      path: "/test/:businessID",
+      name: "restaurant-details",
       component: dataTest
     },
 

@@ -43,8 +43,26 @@ export default {
       invalidCredentials: false
     };
   },
+
+  // addToFaveState(restaurantID){
+  //     // Local Changes
+  //     this.$store.commit("ADD_FAVORITE", restaurantID);
+  //      YelpService.getSingleRestaurant(restaurantID)
+  //       .then((response) => {
+  //         this.$store.commit("SET_FAV_RESTAURANTS", response)
+  //       });
+  //     // Changes to Database
+  //     const dto = {
+  //       yelpId: restaurantID,
+  //       isShown: false
+  //     }
+  //     UserService.addFavorite(dto);
+  //   }
+
+
   methods: {
     login() {
+      // Accessing Database to Login
       authService
         .login(this.user)
         .then(response => {
@@ -64,6 +82,12 @@ export default {
             this.invalidCredentials = true;
           }
         });
+        // SET JWT after getting from DB
+
+        // SET profile object in $store
+
+       // SET favorte restaurants in $store
+
     }
   }
 };

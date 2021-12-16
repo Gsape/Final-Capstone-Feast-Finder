@@ -10,8 +10,8 @@ export default {
     return axios.post('/register', user)
   },
 
-  yelpKey() {
-    return axios.get('/login')
+  yelpKey(user) {
+    return axios.get('/login', user)
   }
 
 }
