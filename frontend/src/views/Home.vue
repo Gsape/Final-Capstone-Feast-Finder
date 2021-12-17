@@ -14,11 +14,11 @@
       </p>
     </div>
     <div v-else class="GoEat">
-      <h1>Recommended Restaurants</h1>
+      <h1 class="sections">Recommended Restaurants</h1>
         <!-- <router-link :to="{ name: 'restaurant-details', params: { id: restaurant.id }}" v-for="r in $store.state.restaurant" v-bind:key="r.id"> -->
           <single-card />
         <!-- </router-link> -->
-      <h1 class="faveHeader">Your Favorite Restaurants</h1>
+      <h1 class="sections">Your Favorite Restaurants</h1>
       <fav-card />
     </div>
   </div>

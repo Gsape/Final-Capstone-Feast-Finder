@@ -49,10 +49,10 @@
       </container>
     
     <!-- {{ options.type }} -->
-
+  </form>
     <button class="doWhatIWant" type="submit" id="submit" v-on:click="submitForm">Submit</button>
     <!-- <button type="button" id="sendToDB" v-on:click="sendToServer">Save as Default Profile</button> -->
-  </form>
+  
   </div>
 </template>
 
