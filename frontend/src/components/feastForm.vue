@@ -18,10 +18,10 @@
 
       <label for="radius" class="radius">Radius</label>
       <select name="radius" id="radius" v-model="form.radius">
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-        <option value="20">20</option>
+        <option value="5">5 Miles</option>
+        <option value="10">10 Miles</option>
+        <option value="15">15 Miles</option>
+        <option value="20">20 Miles</option>
         <!-- <option value="25">25</option> -->
       </select>
 

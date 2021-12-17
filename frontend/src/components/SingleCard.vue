@@ -13,13 +13,13 @@
       >
         <div class="flip-card">
           <div class="card-inner">
-            <div class="card, card-back">
+            <div class="card, card-back" v-bind:id="'card_' + restaurant.id" >
               <!-- div class="card, card-back"> -->
                 <div class="container">
                   <h4>
                     <b>{{ restaurant.name }}</b>
                   </h4>
-                  <p>{{ restaurant.location.address1 }}</p>
+                  <p>Number of Reviews: {{ restaurant.review_count }}</p>
                   <p>{{ restaurant.display_phone }}</p>
                   <button
                     type="button"
@@ -29,6 +29,7 @@
                   >
                     Like
                   </button>
+                  <!-- <button type="button" v-bind:id="'button_' + restaurant.id"  v-on:click=rejectRestaurant(restaurant.id)  class="btn btn-primary btn-sm">Reject</button> -->
                 </div>
 
             </div>
@@ -41,8 +42,7 @@
                   <b>{{ restaurant.name }}</b>
                 </h4>
                 <p>{{ restaurant.location.address1 }}</p>
-                <p>{{ restaurant.display_phone }}</p>
-                
+                <p>Price: {{ restaurant.price }} | Rating: {{ restaurant.rating }}</p>
                 <!-- <button
                   type="button"
                   v-on:click="addToFaveState(restaurant.id)"
@@ -84,9 +84,14 @@ export default Vue.extend({
       };
       UserService.addFavorite(dto);
     },
+
+    rejectRestaurant(id) {
+      id
+    }
   },
 });
 </script>
+
 <style>
 
 * {

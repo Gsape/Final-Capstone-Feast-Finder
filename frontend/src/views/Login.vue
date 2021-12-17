@@ -61,12 +61,6 @@ export default {
             this.invalidCredentials = true;
           }
         });
-        // SET JWT after getting from DB
-
-        // SET profile object in $store
-
-       // SET favorte restaurants in $store
-
     }
   }
 };
@@ -107,9 +101,10 @@ form{
   box-sizing: border-box;
   margin: 5px 200px 20px 200px;
   padding: 50px;
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
-  border-radius: 10px;
-  backdrop-filter: blur(5px);
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.308); 
+  border-radius: 15px;
+  background-color: rgba(167, 167, 167, 0.329);
+  backdrop-filter: blur(15px);
   text-align: center;
 }
 
@@ -134,6 +129,7 @@ body {
 	animation: gradient 15s ease infinite;
   font-family: "OpenSans";
 }
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;

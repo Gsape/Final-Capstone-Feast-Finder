@@ -20,5 +20,10 @@
   font-family: "OpenSans";
   src: local("OpenSans"),
   url(./fonts/OpenSans-VariableFont_wdth,wght.ttf) format("truetype");
+  font-family: "KornerDeliNF";
+  src: local("KornerDeliNF"),
+   url(./fonts/KornerDeliNF.ttf) format("truetype");
+
 }
+
 </style>
