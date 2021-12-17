@@ -3,7 +3,7 @@
     <container class='login-image-container'>
       <img src="/heart-and-fork.png" class="logo" alt="logo">
     </container>
-    <form class="border border-light p-5" @submit.prevent="login" id="loginForm">
+    <form class="login" @submit.prevent="login" id="loginForm">
       <h1 id="welcome-message" class="h4 mb-4 text-center">Welcome to Feast Finder</h1>
       <h2 id="please-sign-in" class="h4 mb-4 text-center">Please Sign In</h2>
       <div
@@ -96,13 +96,17 @@ span {
   padding: 10px;
 }
 #Sign_in{
-  border-radius: 10px 10px;
-  background-color: #7baee9;
-  text-align: center;
-  margin: auto;
-  display: flex;
+  margin: 20px;
+  background-color: #6046ED;
+  box-shadow: 0px 4px 8px 0px #F887D6;
+  width: 180px;
+  height: 50px;
+  font-size: 20px;
+  color:white;
+  border-radius: 8px;
 }
-form{
+
+form {
   box-sizing: border-box;
   margin: 5px 200px 20px 200px;
   padding: 50px;

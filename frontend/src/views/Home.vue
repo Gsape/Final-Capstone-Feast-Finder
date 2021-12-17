@@ -4,8 +4,8 @@
     <banner/>
   </header>
     <div v-if="this.$store.state.searchResults.length === 0" class="instructions">
-      <h1>Welcome to Feast Finder!</h1>
-      <p>
+      <h1 class="text">Welcome to Feast Finder!</h1>
+      <p class="text">
         <ul>Right now, this page is as empty as your tummy :(</ul>
         <ul>To fill both, click the Feast Form button to select any of the foods you might be interested in eating today.</ul>
         <ul>When you submit, you'll have a feast of choices before you!</ul>
@@ -67,6 +67,9 @@ h1.sections {
 
 .faveHeader{
   padding-top: 20px;
+}
+.text{
+  color: white;
 }
 
 </style>

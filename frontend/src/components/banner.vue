@@ -67,12 +67,15 @@ export default {
 }
 
 .logout {
+  font-family: 'Open Sans', sans-serif;
   margin: 20px;
   background-color: #6046ED;
   box-shadow: 0px 4px 8px 0px #F887D6;
-  width: 200px;
-  height: 60px;
-
+  width: 180px;
+  height: 50px;
+  font-size: 20px;
+  color: white;
+  border-radius: 8px;
 }
 
 </style>
