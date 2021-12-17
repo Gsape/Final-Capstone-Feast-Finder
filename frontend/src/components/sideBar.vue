@@ -39,6 +39,11 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
 #sideBarFeastForm{
     width:100%;
     border-radius: 5px;
