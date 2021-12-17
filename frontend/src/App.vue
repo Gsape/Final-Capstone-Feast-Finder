@@ -19,4 +19,5 @@
    url(./fonts/KornerDeliNF.ttf) format("truetype");
 
 }
+
 </style>

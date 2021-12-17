@@ -7,8 +7,8 @@
     <div class=below-banner>
         <side-bar/>
         <div id="nav">
-            <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-            <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+            <!-- <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp; -->
+            <router-link tag="button" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" class='logout'>Logout</router-link>
         </div>
     </div>
 </div>
@@ -25,6 +25,9 @@ export default {
 </script>
 
 <style>
+
+
+
 .banner{
     display: flex;
     flex-direction: row;
@@ -58,6 +61,15 @@ export default {
     width: auto;
     flex: flex-end;
     padding-right: 20px;
+}
+
+.logout {
+  margin: 20px;
+  background-color: #6046ED;
+  box-shadow: 0px 4px 8px 0px #F887D6;
+  width: 200px;
+  height: 60px;
+
 }
 
 </style>
