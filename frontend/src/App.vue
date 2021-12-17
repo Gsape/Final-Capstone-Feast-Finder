@@ -14,8 +14,9 @@
 }
 
 @font-face {
-  font-family: "Wabeco";
-  src: local("Webeco"),
-   url(./fonts/WABECO-Regular.ttf) format("truetype");
+  font-family: "KornerDeliNF";
+  src: local("KornerDeliNF"),
+   url(./fonts/KornerDeliNF.ttf) format("truetype");
+
 }
 </style>

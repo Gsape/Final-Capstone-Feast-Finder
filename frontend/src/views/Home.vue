@@ -2,12 +2,12 @@
   <div>
   <header>
     <banner/>
-    </header>
-    <h1>Recommended Restaurants</h1>
+  </header>
+    <h1 class="sections">Recommended  Restaurants</h1>
       <!-- <router-link :to="{ name: 'restaurant-details', params: { id: restaurant.id }}" v-for="r in $store.state.restaurant" v-bind:key="r.id"> -->
         <single-card />
       <!-- </router-link> -->
-    <h1>Your Favorite Restaurants</h1>
+    <h1 class="sections">Your  Favorite  Restaurants</h1>
     <fav-card />
   </div>
 </template>
@@ -29,20 +29,12 @@ export default {
 <style scoped>
 
 
+h1.sections {
 
-header > img {
-  max-width: 10%;
-  margin-top: -20px;
-  margin-right: 10px;
-  flex-grow: 1;
-}
-
-header > h1 {
-  margin-left: 20px;
-  margin-top: 5px;
-  flex-grow: 2;
   justify-content: flex-start;
-  font-family: "Wabeco";
+  font-family: "KornerDeliNF";
+  color:whitesmoke;
+  letter-spacing: 2.5px;
 }
 
 </style>
