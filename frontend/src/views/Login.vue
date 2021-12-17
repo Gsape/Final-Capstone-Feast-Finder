@@ -3,7 +3,7 @@
     <container class='login-image-container'>
       <img src="/heart-and-fork.png" class="logo" alt="logo">
     </container>
-    <form class="login" @submit.prevent="login">
+    <form class="border border-light p-5" @submit.prevent="login" id="loginForm">
       <h1 id="welcome-message" class="h4 mb-4 text-center">Welcome to Feast Finder</h1>
       <h2 id="please-sign-in" class="h4 mb-4 text-center">Please Sign In</h2>
       <div
@@ -43,23 +43,6 @@ export default {
       invalidCredentials: false
     };
   },
-
-  // addToFaveState(restaurantID){
-  //     // Local Changes
-  //     this.$store.commit("ADD_FAVORITE", restaurantID);
-  //      YelpService.getSingleRestaurant(restaurantID)
-  //       .then((response) => {
-  //         this.$store.commit("SET_FAV_RESTAURANTS", response)
-  //       });
-  //     // Changes to Database
-  //     const dto = {
-  //       yelpId: restaurantID,
-  //       isShown: false
-  //     }
-  //     UserService.addFavorite(dto);
-  //   }
-
-
   methods: {
     login() {
       // Accessing Database to Login
@@ -83,20 +66,18 @@ export default {
 };
 </script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@700&display=swap');
 
 #welcome-message {
-  font-family: 'Old Standard TT', serif;
   font-size: 35px;
+  font-family: "OpenSans";
 }
 
+
 #please-sign-in {
-  font-family: 'Old Standard TT', serif;
   font-size: 25px;
 }
 
 span {
-  font-family: 'Old Standard TT', serif;
   font-weight: bold;
   display: block;
   text-align: center;
@@ -105,7 +86,6 @@ span {
   text-align: center;
   color: #000000;
   font-size: 20px;
-  font-family: 'Old Standard TT', serif;
   display: block;
   text-align: center;
   padding: 10px;
@@ -113,13 +93,11 @@ span {
 #Sign_in{
   border-radius: 10px 10px;
   background-color: #7baee9;
-  font-family: 'Old Standard TT', serif;
   text-align: center;
   margin: auto;
   display: flex;
 }
 form{
-  font-family: 'Old Standard TT', serif;
   box-sizing: border-box;
   margin: 5px 200px 20px 200px;
   padding: 50px;
@@ -149,6 +127,7 @@ body {
 	background: linear-gradient(-45deg, #faf883, #f781ae,#9c3aec, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
+  font-family: "OpenSans";
 }
 
 @keyframes gradient {

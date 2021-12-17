@@ -3,7 +3,7 @@
     <div
       v-for="list in $store.state.searchResults"
       :key="list.businesses"
-      class="d-flex flex-nowrap"
+      class="d-flex flex-nowrap scrollbar scrollbar-morpheus-den"
       id="wrapper"
     >
       <div
@@ -91,10 +91,11 @@ export default Vue.extend({
   },
 });
 </script>
-<style scroped>
-@import url("https://fonts.googleapis.com/css2?family=Vidaloka&display=swap");
+
+<style>
+
 * {
-  font-family: "Vidaloka", serif;
+  font-family: "OpenSans";
 }
 img {
   height: 250px;
@@ -181,5 +182,23 @@ img {
   margin: auto;
 }
 
+.scrollbar-morpheus-den::-webkit-scrollbar-track {
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: transparent;
+border-radius: 10px; }
 
+.scrollbar-morpheus-den::-webkit-scrollbar {
+width: 12px;
+background-color: transparent; }
+
+.scrollbar-morpheus-den::-webkit-scrollbar-thumb {
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-image: -webkit-gradient(linear, left bottom, left top, from(#30cfd0), to(#330867));
+background-image: -webkit-linear-gradient(left, #30cfd0 0%, #330867 100%);
+background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%); }
+
+.scrollbar-morpheus-den {
+scrollbar-color: #330867 #F5F5F5;
+}
 </style>
