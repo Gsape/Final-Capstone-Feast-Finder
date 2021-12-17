@@ -39,9 +39,6 @@ export default {
 
 <style scoped>
 
-
-
-
 ul {
   text-align: center;
   font-size: 25px;

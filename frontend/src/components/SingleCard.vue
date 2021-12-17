@@ -64,6 +64,7 @@
     </div>
   </div>
 </template>
+
 <script lang="ts">
 import Vue from "vue";
 import UserService from "../services/UserService";
@@ -80,7 +81,7 @@ export default Vue.extend({
       // Changes to Database
       const dto = {
         yelpId: restaurantID,
-        isShown: false,
+        isShown: true,
       };
       UserService.addFavorite(dto);
     },
