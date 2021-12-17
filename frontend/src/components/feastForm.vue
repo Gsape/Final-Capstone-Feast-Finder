@@ -49,10 +49,10 @@
       </container>
     
     <!-- {{ options.type }} -->
-
+    </form>
     <button class="doWhatIWant" type="submit" id="submit" v-on:click="submitForm">Submit</button>
     <!-- <button type="button" id="sendToDB" v-on:click="sendToServer">Save as Default Profile</button> -->
-  </form>
+  
   </div>
 </template>
 
@@ -205,7 +205,6 @@ export default {
 
   methods: {
     submitForm() {
-      this.$store.commit("SET_LIST", []);
       const size = this.form.cuisineType.length;
       console.log(size);
       for (let i = 0; i < size; i++) {
@@ -240,10 +239,9 @@ export default {
 </script>
 
 <style>
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 * {
-    font-family: "OpenSans";
-    
+    font-family: 'Open Sans', sans-serif;
 }
 
 #logo {

@@ -13,13 +13,13 @@
       >
         <div class="flip-card">
           <div class="card-inner">
-            <div class="card, card-back" v-bind:id="'card_' + restaurant.id" >
+            <div class="card, card-back">
               <!-- div class="card, card-back"> -->
                 <div class="container">
                   <h4>
                     <b>{{ restaurant.name }}</b>
                   </h4>
-                  <p>Number of Reviews: {{ restaurant.review_count }}</p>
+                  <p>{{ restaurant.location.address1 }}</p>
                   <p>{{ restaurant.display_phone }}</p>
                   <button
                     type="button"
@@ -29,7 +29,6 @@
                   >
                     Like
                   </button>
-                  <!-- <button type="button" v-bind:id="'button_' + restaurant.id"  v-on:click=rejectRestaurant(restaurant.id)  class="btn btn-primary btn-sm">Reject</button> -->
                 </div>
 
             </div>
@@ -42,7 +41,8 @@
                   <b>{{ restaurant.name }}</b>
                 </h4>
                 <p>{{ restaurant.location.address1 }}</p>
-                <p>Price: {{ restaurant.price }} | Rating: {{ restaurant.rating }}</p>
+                <p>{{ restaurant.display_phone }}</p>
+                
                 <!-- <button
                   type="button"
                   v-on:click="addToFaveState(restaurant.id)"
@@ -64,7 +64,6 @@
     </div>
   </div>
 </template>
-
 <script lang="ts">
 import Vue from "vue";
 import UserService from "../services/UserService";
@@ -81,22 +80,17 @@ export default Vue.extend({
       // Changes to Database
       const dto = {
         yelpId: restaurantID,
-        isShown: true,
+        isShown: false,
       };
       UserService.addFavorite(dto);
     },
-
-    rejectRestaurant(id) {
-      id
-    }
   },
 });
 </script>
-
 <style>
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 * {
-  font-family: "OpenSans";
+  font-family: 'Open Sans', sans-serif;
 }
 img {
   height: 250px;

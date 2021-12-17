@@ -67,10 +67,14 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+* {
+    font-family: "OpenSans";
+}
 
 #welcome-message {
   font-size: 35px;
-  font-family: "OpenSans";
+  font-family: 'Open Sans', sans-serif;
 }
 
 

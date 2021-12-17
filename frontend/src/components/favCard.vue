@@ -47,11 +47,9 @@ export default Vue.extend({
 
 
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 * {
-    font-family: 'Vidaloka', serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 img {
