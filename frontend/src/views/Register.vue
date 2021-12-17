@@ -123,12 +123,14 @@ export default {
 
 .content {
   font-family: 'Old Standard TT', serif;
-  background-color: white;
   height: 550px;
-  width: 400px;
+  width: 600px;
   border-radius: 8px;
   padding: 20px 40px;
-  box-shadow: 0px 10px 25px gray;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.308); 
+  border-radius: 15px;
+  background-color: rgba(167, 167, 167, 0.329);
+  backdrop-filter: blur(15px);
 }
 
 .title {
