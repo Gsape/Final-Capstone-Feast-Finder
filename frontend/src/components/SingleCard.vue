@@ -91,7 +91,7 @@ export default Vue.extend({
   },
 });
 </script>
-<style>
+<style scroped>
 @import url("https://fonts.googleapis.com/css2?family=Vidaloka&display=swap");
 * {
   font-family: "Vidaloka", serif;
