@@ -38,9 +38,9 @@
             required
           />
           <button class="submit" type="submit">Create Account</button>
-          <router-link :to="{ name: 'login' }" class="existing"
+          <!-- <router-link :to="{ name: 'login' }" class="existing"
             >Have an account?</router-link
-          >
+          > -->
         </div>
       </div>
     </form>
