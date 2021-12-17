@@ -15,12 +15,14 @@
           <div class="card-inner">
             <div class="card, card-back">
               <!-- div class="card, card-back"> -->
-                <div class="container">
+                <div class="container" id='container-front'>
                   <h4>
                     <b>{{ restaurant.name }}</b>
                   </h4>
                   <p>{{ restaurant.location.address1 }}</p>
                   <p>{{ restaurant.display_phone }}</p>
+                  <p>Number Of Ratings: {{ restaurant.review_count }}</p>
+                  <!-- <p class='url'>{{ restaurant.url }}</p> -->
                   <button
                     type="button"
                     v-on:click="addToFaveState(restaurant.id)"
@@ -41,7 +43,8 @@
                   <b>{{ restaurant.name }}</b>
                 </h4>
                 <p>{{ restaurant.location.address1 }}</p>
-                <p>{{ restaurant.display_phone }}</p>
+                <p>Price: {{ restaurant.price }} | Rating: {{ restaurant.rating }}</p>
+                
                 
                 <!-- <button
                   type="button"
@@ -104,7 +107,7 @@ img {
   border-radius: 10px;
   width: 300px;
   height: 400px;
-  margin: 20px;
+  
   /* display: flex; */
   background-color: red;
   border: 1px solid #f1f1f1;
@@ -144,7 +147,7 @@ img {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: dodgerblue;
+  background-color: #80ACE9;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
@@ -165,17 +168,16 @@ img {
   margin: auto;
   vertical-align: center;
 }
-/* .space {
-   position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-} */
-#like {
-  margin: auto;
+
+#container-front {
+  padding: 100px 0px;
 }
+
+.space {
+  margin: 0px 10px
+}
+
+
 
 .scrollbar-morpheus-den::-webkit-scrollbar-track {
 -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
