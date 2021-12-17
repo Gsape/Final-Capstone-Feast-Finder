@@ -175,21 +175,18 @@ export default {
 }
 
 .submit {
-  position: relative;
-  padding: 15px 60px;
-  border: none;
-  background-color: rgb(59, 123, 243);
-  color: aliceblue;
-  border-radius: 6px;
-  font-size: 20px;
-  height: 45px;
-  width: 90%;
-  text-align: center;
-  margin-bottom: 20px;
+  margin: 20px;
+  background-color: #6046ED;
+  box-shadow: 0px 4px 8px 0px #F887D6;
+  width: 180px;
+  height: 50px;
+  font-size: 15px;
+  color:white;
+  border-radius: 8px
 }
 
 .submit:hover {
-  background-color: rgb(0, 174, 255);
+  background-color:  #7e68f7;
   transform: translateY(-2px);
 }
 

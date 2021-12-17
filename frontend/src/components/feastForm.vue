@@ -288,7 +288,9 @@ h1 {
   margin-top: 15px;
   cursor: pointer;
   width: 100%;
+  color: white;
 }
+
 .form-check-label {
   display: flex;
   font-family: serif;

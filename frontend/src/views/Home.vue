@@ -4,8 +4,8 @@
     <banner/>
   </header>
     <div v-if="this.$store.state.searchResults.length === 0" class="instructions">
-      <h1>Welcome to Feast Finder!</h1>
-      <p>
+      <h1 class="text">Welcome to Feast Finder!</h1>
+      <p class="text">
         <ul>Right now, this page is as empty as your tummy :(</ul>
         <ul>To fill both, click the Feast Form button to select any of the foods you might be interested in eating today.</ul>
         <ul>When you submit, you'll have a feast of choices before you!</ul>
@@ -14,11 +14,11 @@
       </p>
     </div>
     <div v-else class="GoEat">
-      <h1>Recommended Restaurants</h1>
+      <h1 class="sections">Recommended Restaurants</h1>
         <!-- <router-link :to="{ name: 'restaurant-details', params: { id: restaurant.id }}" v-for="r in $store.state.restaurant" v-bind:key="r.id"> -->
           <single-card />
         <!-- </router-link> -->
-      <h1 class="faveHeader">Your Favorite Restaurants</h1>
+      <h1 class="sections">Your Favorite Restaurants</h1>
       <fav-card />
     </div>
   </div>
@@ -67,6 +67,9 @@ h1.sections {
 
 .faveHeader{
   padding-top: 20px;
+}
+.text{
+  color: white;
 }
 
 </style>
