@@ -3,7 +3,7 @@
     <container class='login-image-container'>
       <img src="/heart-and-fork.png" class="logo" alt="logo">
     </container>
-    <form class="border border-light p-5" @submit.prevent="login">
+    <form class="login" @submit.prevent="login">
       <h1 id="welcome-message" class="h4 mb-4 text-center">Welcome to Feast Finder</h1>
       <h2 id="please-sign-in" class="h4 mb-4 text-center">Please Sign In</h2>
       <div
@@ -78,12 +78,6 @@ export default {
             this.invalidCredentials = true;
           }
         });
-        // SET JWT after getting from DB
-
-        // SET profile object in $store
-
-       // SET favorte restaurants in $store
-
     }
   }
 };
@@ -129,9 +123,10 @@ form{
   box-sizing: border-box;
   margin: 5px 200px 20px 200px;
   padding: 50px;
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
-  border-radius: 10px;
-  backdrop-filter: blur(5px);
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.308); 
+  border-radius: 15px;
+  background-color: rgba(167, 167, 167, 0.329);
+  backdrop-filter: blur(15px);
   text-align: center;
 }
 

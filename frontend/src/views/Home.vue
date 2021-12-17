@@ -41,6 +41,8 @@ export default {
 <style scoped>
 
 
+
+
 ul {
   text-align: center;
   font-size: 25px;
@@ -51,18 +53,10 @@ ul {
   margin: auto;
 }
 
-header > img {
-  max-width: 10%;
-  margin-top: -20px;
-  margin-right: 10px;
-  flex-grow: 1;
-}
-
-header > h1 {
-  margin-left: 20px;
-  margin-top: 5px;
-  flex-grow: 2;
+h1.sections {
   justify-content: flex-start;
-  font-family: "Wabeco";
+  font-family: "KornerDeliNF";
+  color:whitesmoke;
+  letter-spacing: 2.5px;
 }
 </style>
