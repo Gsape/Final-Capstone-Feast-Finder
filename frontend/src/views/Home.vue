@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class>
   <header>
     <banner/>
   </header>
@@ -26,14 +26,13 @@
 </template>
 
 <script>
-import Banner from '../components/banner.vue';
-import FavCard from '../components/favCard.vue';
-import SingleCard from '../components/SingleCard.vue';
- 
-export default {
-  components: {Banner, SingleCard, FavCard},
-  name: "home",
+import Banner from "../components/banner.vue";
+import FavCard from "../components/favCard.vue";
+import SingleCard from "../components/SingleCard.vue";
 
+export default {
+  components: { Banner, SingleCard, FavCard },
+  name: "home",
 };
 </script>
 
@@ -41,12 +40,13 @@ export default {
 
 <style scoped>
 
-ul{
+
+ul {
   text-align: center;
   font-size: 25px;
 }
 
-.instructions{
+.instructions {
   width: 60%;
   margin: auto;
 }
@@ -65,5 +65,4 @@ header > h1 {
   justify-content: flex-start;
   font-family: "Wabeco";
 }
-
 </style>
